@@ -23,10 +23,29 @@
 <config>
     <modules>
         <MagentoBR_BoletoBancario>
-            <version>1.4.3</version>          
+            <version>1.5.0</version>          
         </MagentoBR_BoletoBancario>
     </modules>
     <global>
+        <!-- INICIO DAS CONFIGURAÇÕES DO TEMPLATE DE E-MAIL -->
+        <template>
+            <email>
+                <!--
+                    Note que a tag: boleto_bancario_email_segunda_via
+                    é a mesma definida no system.xml, no nó
+                 -->
+                <boleto_bancario_email_segunda_via translate="label" module="BoletoBancario">
+                    <!-- Nome do Template -->
+                    <label>Boleto Bancário - Envio da Segunda Via</label>
+                    <!-- Arquivo do Template -->
+                    <!-- O Arquivo se encontra em /app/locale/[IDIOMA]/template/email -->
+                    <file>boletobancario/segunda_via.html</file>
+                    <!-- Define que o formato é HTML -->
+                    <type>html</type>
+                </boleto_bancario_email_segunda_via>
+            </email>
+        </template>
+        <!-- INICIO DAS CONFIGURAÇÕES DO TEMPLATE DE E-MAIL -->
         <models>
             <BoletoBancario>
                 <class>MagentoBR_BoletoBancario_Model</class>

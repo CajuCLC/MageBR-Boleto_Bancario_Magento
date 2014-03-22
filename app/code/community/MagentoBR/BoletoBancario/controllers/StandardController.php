@@ -25,6 +25,12 @@
  
 class MagentoBR_BoletoBancario_StandardController extends Mage_Core_Controller_Front_Action
 {
+
+    /**
+     * Define o caminho do template do boleto
+     */
+    const XML_PATH_EMAIL_BOLETO_SEGUNDA_VIA = 'payment/BoletoBancario_standard/boleto_bancario_email_segunda_via';
+
 	public $data=array();
     protected function _expireAjax()
     {
@@ -126,8 +132,30 @@ class MagentoBR_BoletoBancario_StandardController extends Mage_Core_Controller_F
         $this->getResponse()->setBody($this->getLayout()->createBlock('BoletoBancario/standard_view')->toHtml());
 	}
 	
+
+    /**
+     * Envia o e-mail com a segunda via do boleto
+     */
 	public function sendmailAction() {
-        $this->getResponse()->setBody($this->getLayout()->createBlock('BoletoBancario/standard_sendMail')->toHtml());
+        /**
+         * O envio da segunda via não é mais feito pelo bloco SendMail
+         * Nesse caso, o block SendMail não é mais necessário e pode ser removido.
+         * $this->getResponse()->setBody($this->getLayout()->createBlock('BoletoBancario/standard_sendMail')->toHtml());
+         */
+        
+        /**
+         * Faz o envio do e-mail
+         */
+        $this->_sendNotificationEmail();
+        /**
+         * Retorna o bloco com a mensagem de que o e-mail foi enviado
+         */        
+        $blocoRetorno = $this->getLayout()->createBlock('core/template')->setTemplate('BoletoBancario/popup-segundavia.phtml');
+        /**
+         * Exibe o bloco.
+         */
+        $this->getResponse()->setBody($blocoRetorno->toHtml());
+        
 	}
 
     /*
@@ -185,5 +213,99 @@ class MagentoBR_BoletoBancario_StandardController extends Mage_Core_Controller_F
         $this->getStandard()->setIpnFormData($this->getRequest()->getPost());
         //$this->getStandard()->ipnPostSubmit();
 		$this->getStandard()->updateOrder();
+    }
+
+
+    /**
+     * Faz o envio do e-mail da segunda via do boleto.
+     * @author Daniel Salvagni <danielsalvagni@gmail.com>
+     * @return StandartController
+     */
+    private function _sendNotificationEmail()
+    {
+         
+         /**
+          * Caminho do template do e-mail
+          */
+        $templateConfigPath = self::XML_PATH_EMAIL_BOLETO_SEGUNDA_VIA;
+        /**
+         * Instancia o model
+         */
+        $standard           = Mage::getModel('BoletoBancario/standard');
+        /**
+         * Recupera o ID do pedido
+         */
+        $order_id           = $this->getRequest()->getParam('order_id');
+        /**
+         * Recupera o pedido
+         */
+        $order              = $standard->getOrder($order_id);
+        /**
+         * Define o destinatário: e-mail do cliente
+         */
+        $to                 = $order->getCustomerEmail();
+        /**
+         * Define o destinatário: nome do cliente
+         */
+        $toName             = $order->getCustomerName();
+        /**
+         * Retorna o cliente para ser passado como variável para o template
+         * @var [type]
+         */
+        $customer = Mage::getModel('customer/customer')->load($order->getCustomerId());
+
+        $translate = Mage::getSingleton('core/translate');
+        $translate->setTranslateInline(false);
+
+        /**
+         * Instancia o model de template de e-mail
+         */
+        $mailTemplate = Mage::getModel('core/email_template');
+        /**
+         * Pega o ID do template de e-mail, filtrando pela loja que o pedido está relacionado
+         */
+        $template = Mage::getStoreConfig($templateConfigPath, Mage::app()->getStore()->getId());
+        /**
+         * Define as configurações de design do template
+         */
+        $mailTemplate->setDesignConfig(array('area'=>'frontend', 'store'=>Mage::app()->getStore()->getId()))
+                    /**
+                     * Envia o e-mail
+                     * Definição da função de envio
+                     *
+                     * @param   int $templateId Id do Template
+                     * @param   string|array $sender Informações do remetente
+                     * @param   string $email E-mail do Destinatário
+                     * @param   string $name Nome do Destinatário
+                     * @param   array $vars Variáveis que podem ser utilizadas no template
+                     * @param   int|null $storeId Id da Loja
+                     * @return  Mage_Core_Model_Email_Template
+                     */
+                     ->sendTransactional(
+                                $template,
+                                Mage::getStoreConfig(Mage_Sales_Model_Order::XML_PATH_EMAIL_IDENTITY,Mage::app()->getStore()->getId()),
+                                $to,
+                                $toName,
+                                /**
+                                 * NESSE PONTO DEFINIMOS AS VARIÁVEIS PASSADAS PARA O TEMPLATE
+                                 */
+                                array(
+                                        /**
+                                         * Envia a váriavel com o link do boleto
+                                         */
+                                        'boleto_link'  => Mage::getUrl("BoletoBancario/standard/view/order_id/$order_id"),
+                                        /**
+                                         * Envia o objeto do cliente para que seja possível retornar os atributos do cliente no template
+                                         */
+                                        'customer'     => $customer,
+                                        /**
+                                         * Envia o objeto do pedido para que seja possível retornar os atributos do pedido no template
+                                         */
+                                        'order'        => $order
+                                )
+                     );
+        $translate->setTranslateInline(true);
+     
+        return $this;
     }
 }
