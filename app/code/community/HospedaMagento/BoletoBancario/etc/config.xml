@@ -23,7 +23,7 @@
 <config>
     <modules>
         <HospedaMagento_BoletoBancario>
-            <version>1.0.0</version>          
+            <version>1.0.2</version>          
         </HospedaMagento_BoletoBancario>
     </modules>
     <global>

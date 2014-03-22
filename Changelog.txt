@@ -1,3 +1,8 @@
+==== 1.0.2 - 22/01/2013 ====
+- Remoção de arquivos desnecessários.
+- Correção do arquivo Leia.txt.
+
+
 ==== 1.0.1 - 21/01/2013 ====
 - Remoção de arquivos desnecessários.
 

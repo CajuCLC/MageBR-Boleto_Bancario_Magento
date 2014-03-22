@@ -28,9 +28,15 @@ if($order->getPayment()->getMethod() == "BoletoBancario_standard"): ?>
 	</center>
 <?php endif; /** FIM GERAR BOLETO SE BOLETO*/?>
 
-5. O módulo oferece a função de envio da segunda via do Boleto por email para o cliente na área do admin, ao acessar o pedido. Para alterar a logomarca da sua empresa, crie um arquivo com o nome logo_boleto.png na pasta /skin/frontend/base/default/images/cards/.
+5. O módulo oferece a função de envio da segunda via do Boleto por email para o cliente na área do admin, ao acessar o pedido. Para alterar a logomarca da sua empresa, crie um arquivo com o nome logo_boleto.png na pasta /skin/frontend/base/default/images/boleto/.
 
-6. Caso ainda tenha algum erro, entre em contato com:
+6. Para enviar o link do boleto no email de compra, edite o email que sua loja utiliza e procure por:
+ {{var payment_html}}
+ 
+ Logo abaixo insira o código:
+ {{block type=’core/template’ area=’frontend’ template=’BoletoBancario/BoletoBancario.phtml’ order=$order}}
+
+7. Caso ainda tenha algum erro, entre em contato com:
 magentobr@magentobr.com
 magentobr@gmail.com
 
