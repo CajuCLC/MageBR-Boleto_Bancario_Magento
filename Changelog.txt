@@ -1,3 +1,8 @@
+==== 1.3.0 - 29/01/2013 ====
+- Códigos atualizados para funcionar na versão 1.7.
+- Email de novo pedido sendo enviado ao cliente com um link para gerar o boleto na versão 1.7.
+
+
 ==== 1.2.0 - 26/01/2013 ====
 - Corrigido erro gerado no Firefox ao ser redirecionado ao boleto em ambiente seguro (HTTPS), que informava que não era ambiente seguro.
 - Removido o POP UP que abria a página do boleto. Agora vai direto para a página success onde o cliente pode clicar e gerar o boleto.

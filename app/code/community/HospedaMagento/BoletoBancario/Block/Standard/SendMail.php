@@ -79,11 +79,13 @@ class HospedaMagento_BoletoBancario_Block_Standard_Sendmail extends Mage_Core_Bl
     }
   
   public function sendEmail($subject, $from, $to, $order_id, $order) {
-  $cls  = new Mage_Core_Model_Design_Package();
-  $path = $cls->getSkinBaseUrl();
+  // $cls  = new Mage_Core_Model_Design_Package();
+  // $path = $cls->getSkinBaseUrl();
+  $logoboleto = $this->getSkinUrl("images/boleto/logo_boleto.png");
   $a = $order->getBillingAddress();
 
-    $html  = '<img src="' . $path . 'images/boleto/logo_boleto.png" /> <br />';
+    // $html  = '<img src="' . $path . 'images/boleto/logo_boleto.png" /> <br />';
+	$html  = '<img src="'. $logoboleto .'" /> <br /><br />';
     $html .= 'Caro cliente <strong>' . $a->getFirstname().' '.$a->getLastname() . '</strong>,<br /><br />';
 	$html .= 'Estamos enviando este email com a segunda via do boleto de seu pedido <strong># ' . $order->getRealOrderId() . '</strong>. <br />';
     $html .= 'Clique no link abaixo para ver e imprimir a segunda via do boleto. <br /><br />';

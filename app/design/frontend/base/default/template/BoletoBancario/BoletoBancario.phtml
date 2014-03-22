@@ -1,6 +1,7 @@
-<?php if($this->getData('order')->getPayment()->getMethod()=='BoletoBancario_standard') { 
+<?php
+$idnumber = Mage::getUrl("BoletoBancario/standard/view/order_id/" . $this->getOrder()->getId()); // Pega id do pedido
+if($this->getOrder()->getPayment()->getMethod()=='BoletoBancario_standard') { 
 echo "<strong>Boleto Bancário</strong> <br />";
-echo "<a href=\"" . $this->getUrl('BoletoBancario/standard/view/order_id/' .
-$this->getData('order')->getId()) . "\" class=\"link-cart\" onclick=\"this.target='_blank'\">" . $this->__('Imprimir Boleto') . "</a>";
+echo "<a href=\"" . $idnumber . "\" class=\"link-cart\" onclick=\"this.target='_blank'\">" . $this->__('Imprimir Boleto') . "</a>";
 }
 ?>

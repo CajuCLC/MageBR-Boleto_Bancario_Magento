@@ -12,20 +12,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@magentocommerce.com so we can send you a copy immediately.
  *
- * @category   design_default
- * @package    Mage
+ * @category   Mage
+ * @package    HospedaMagento_BoletoBancario
  * @copyright  Copyright (c) 2004-2007 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-?>
-<fieldset class="form-list">
-    <?php $_code=$this->getMethodCode();
-		// $cls  = new Mage_Core_Model_Design_Package();
-		// $path = $cls->getSkinBaseUrl();
-	?>
-	
-    <ul id="payment_form_<?php echo $_code ?>" style="display:none">
-	<li><img src="<?php echo $this->getSkinUrl('images/boleto/ct_boleto.gif') ?>" />&nbsp;&nbsp;&nbsp;&nbsp;</li>
-        <li><strong><?php echo $this->getCustomText() ?></strong></li>
-    </ul>
-</fieldset>
+
+
+$installer = $this;
+/* @var $installer Mage_BoletoBancario_Model_Mysql4_Setup */
+
+$installer->startSetup();
+
+$installer->endSetup();
