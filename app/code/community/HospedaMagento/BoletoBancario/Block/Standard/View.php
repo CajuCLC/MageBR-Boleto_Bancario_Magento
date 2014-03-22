@@ -58,7 +58,7 @@ class HospedaMagento_BoletoBancario_Block_Standard_View extends Mage_Core_Block_
 		$order_id = $this->getRequest()->getParam('order_id');
 
         $form = new Varien_Data_Form();
-        $form->setAction($standard->getBoletoBancarioUrl())
+        $form->setAction($standard->getBoletoBancarioViewUrl())
             ->setId('BoletoBancario_standard_view')
             ->setName('BoletoBancario_standard_view')
             ->setMethod('POST')
@@ -67,19 +67,21 @@ class HospedaMagento_BoletoBancario_Block_Standard_View extends Mage_Core_Block_
 		foreach ($standard->getStandardViewFormFields($this->getOrder($order_id)) as $field=>$value) {
             $form->addField($field, 'hidden', array('name'=>$field, 'value'=>$value));
         }
+		
 		$home_url = $this->getSkinUrl('images/boleto/boleto.png');
+		$carregando = $this->getSkinUrl('images/boleto/boletocarregando.gif');
         $html = '<html><body>';
-        $html.= $this->__('<p align="center"><strong>Redirecionando para o Boleto.</strong></p>
+        $html.= $this->__('<p align="center"><strong>Estamos gerando o seu Boleto.</strong></p>
 		<p align="center"><strong>Aguarde...</strong></p>
 			<p align="center">
-			<input type="image" src="'. $home_url .'" value="Clique aqui para efetuar o pagamento" width="128" height="128"/>
-			</p>');	
-		
+			<img src="'. $carregando .'" width="169" height="70" /><br /><br />
+			<input type="image" src="'. $home_url .'" value="Gerando o Boleto" width="128" height="128"/>
+			</p>');
         $html.= $form->toHtml();
 		
 		//echo $this->getOrder()->getBillingAddress();
 		
-		$html.= '<script type="text/javascript">document.getElementById("BoletoBancario_standard_view").submit();</script>';
+		$html.= '<script type="text/javascript">setTimeout(function(){document.getElementById("BoletoBancario_standard_view").submit()}, 2000);</script>';
         $html.= '</body></html>';
 
         return $html;

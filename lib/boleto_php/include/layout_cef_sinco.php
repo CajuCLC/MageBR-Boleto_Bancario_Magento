@@ -51,9 +51,16 @@
   }
   //-->
 </script>
-
+<script language="Javascript">
+function close_window() {
+  if (confirm("Fechar Boleto?")) {
+    close();
+  }
+}
+</script>
 </head>
 <BODY text=#000000 bgColor=#ffffff topMargin=0 rightMargin=0 onload="printpage()">
+<?php $home_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>
 <table width=666 cellspacing=0 cellpadding=0 border=0><tr><td valign=top class=cp><DIV ALIGN="CENTER">Instruções 
 de Impressão</DIV></TD></TR><TR><TD valign=top class=cp><DIV ALIGN="left">
 <p>

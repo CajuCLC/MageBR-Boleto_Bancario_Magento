@@ -156,10 +156,11 @@ $altura = 50 ;
 
 
 //Guarda inicial
-?><img src=<?php echo $dir; ?>imagens/p.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
-src=<?php echo $dir; ?>imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
-src=<?php echo $dir; ?>imagens/p.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
-src=<?php echo $dir; ?>imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
+$home_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+?><img src=<?php echo $dir; ?><?php echo $home_url; ?>lib/boleto_php/imagens/p.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
+src=<?php echo $dir; ?><?php echo $home_url; ?>lib/boleto_php/imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
+src=<?php echo $dir; ?><?php echo $home_url; ?>lib/boleto_php/imagens/p.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
+src=<?php echo $dir; ?><?php echo $home_url; ?>lib/boleto_php/imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
 <?php
 $texto = $valor ;
 if((strlen($texto) % 2) <> 0){
@@ -178,7 +179,7 @@ while (strlen($texto) > 0) {
       $f1 = $largo ;
     }
 ?>
-    src=<?php echo $dir; ?>imagens/p.png width=<?php echo $f1?> height=<?php echo $altura?> border=0><img 
+    src=<?php echo $dir; ?><?php echo $home_url; ?>lib/boleto_php/imagens/p.png width=<?php echo $f1?> height=<?php echo $altura?> border=0><img 
 <?php
     if (substr($f,$i,1) == "0") {
       $f2 = $fino ;
@@ -186,16 +187,16 @@ while (strlen($texto) > 0) {
       $f2 = $largo ;
     }
 ?>
-    src=<?php echo $dir; ?>imagens/b.png width=<?php echo $f2?> height=<?php echo $altura?> border=0><img 
+    src=<?php echo $dir; ?><?php echo $home_url; ?>lib/boleto_php/imagens/b.png width=<?php echo $f2?> height=<?php echo $altura?> border=0><img 
 <?php
   }
 }
 
 // Draw guarda final
 ?>
-src=<?php echo $dir; ?>imagens/p.png width=<?php echo $largo?> height=<?php echo $altura?> border=0><img 
-src=<?php echo $dir; ?>imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
-src=<?php echo $dir; ?>imagens/p.png width=<?php echo 1?> height=<?php echo $altura?> border=0> 
+src=<?php echo $dir; ?><?php echo $home_url; ?>lib/boleto_php/imagens/p.png width=<?php echo $largo?> height=<?php echo $altura?> border=0><img 
+src=<?php echo $dir; ?><?php echo $home_url; ?>lib/boleto_php/imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
+src=<?php echo $dir; ?><?php echo $home_url; ?>lib/boleto_php/imagens/p.png width=<?php echo 1?> height=<?php echo $altura?> border=0> 
   <?php
 } //Fim da função
 

@@ -202,7 +202,7 @@ class HospedaMagento_BoletoBancario_Model_Standard extends Mage_Payment_Model_Me
         if ($this->getDebug() && $sReq) {
             $sReq = substr($sReq, 1);
             $debug = Mage::getModel('BoletoBancario/api_debug')
-                    ->setApiEndpoint($this->getBoletoBancarioUrl())
+                    ->setApiEndpoint($this->getBoletoBancarioViewUrl())
                     ->setRequestBody($sReq)
                     ->save();
         }
@@ -324,10 +324,28 @@ class HospedaMagento_BoletoBancario_Model_Standard extends Mage_Payment_Model_Me
 		return($matches[1] . $matches[2]);
 	}
 
+		// public function usado no view de segunda via.
+	    public function getBoletoBancarioViewUrl()
+    {
+		// Esta versao da problemas com SSL.
+		// $url = Mage::getUrl("BoletoBancario/standard/gerar",array('_secure'=>true));
+        // return $home_url .'BoletoBancario/standard/gerar';
+		
+		//Esta versao esta ok com SSL
+		$home_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+		return $home_url .'BoletoBancario/standard/gerar';
+    }
+	
+	// public function usado no checkout.
     public function getBoletoBancarioUrl()
     {
-		$url = Mage::getUrl("BoletoBancario/standard/gerar");
-         return $url;
+		// Esta versao da problemas com SSL.
+		// $url = Mage::getUrl("BoletoBancario/standard/gerar",array('_secure'=>true));
+        // return $home_url .'BoletoBancario/standard/gerar';
+		
+		//Esta versao esta ok com SSL
+		$home_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+		return $home_url .'BoletoBancario/standard/success';
     }
 	
 	public function getLibBoletoUrl() {

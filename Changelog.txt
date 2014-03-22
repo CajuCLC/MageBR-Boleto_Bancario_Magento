@@ -1,3 +1,9 @@
+==== 1.2.0 - 26/01/2013 ====
+- Corrigido erro gerado no Firefox ao ser redirecionado ao boleto em ambiente seguro (HTTPS), que informava que não era ambiente seguro.
+- Removido o POP UP que abria a página do boleto. Agora vai direto para a página success onde o cliente pode clicar e gerar o boleto.
+- Texto alterado e imagem de carregando na página que redireciona ao boleto. Também há uma pausa de 2 segundos antes de ser redirecionado.
+
+
 ==== 1.1.0 - 25/01/2013 ====
 - A função de não permitir 2ª via caso o pedido estivesse cancelado não funcionava em HTTPS. Isto foi corrigido.
 - Inclusão do Caixa Econômica Federal - SIGCB, contribuição de Paulo Mendes (http://www.pvmshopping.com.br/).
