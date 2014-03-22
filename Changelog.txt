@@ -1,4 +1,8 @@
-==== 1.0.0 - 21/01/2013 ====
+==== 1.0.1 - 21/01/2013 ====
+- Remoção de arquivos desnecessários.
+
+
+==== 1.0.0 - 20/01/2013 ====
 - Correção de problema de BD e class não encontrada.
 Fatal error: Class 'Mage_BoletoBancario_Helper_Data' not found in /PATH/TO/MAGENTO/app/Mage.php on line 546
 
