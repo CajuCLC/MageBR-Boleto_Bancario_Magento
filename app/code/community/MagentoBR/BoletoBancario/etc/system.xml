@@ -30,14 +30,14 @@
                     <sort_order>671</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
-                    <show_in_store>0</show_in_store>
+                    <show_in_store>1</show_in_store>
  					<comment>
                         <![CDATA[
 <div>
                             <br style="clear: both;"/>
     					 	<a style="width: 439px; height: 88px; display: block; float: left" href="http://www.boleto.magentobr.com" target="_blank" style="float: left;"><img src="https://10929165bcfeb7567fa0-e34bcff0a631fbf232a09ad41f9622a9.ssl.cf1.rackcdn.com/Modulo_boleto.png" /></a>
                             <div style="width: 439px; height: 88px; display: block; float: left; padding-left: 35px; padding-top:37px">
-                                <label style="font-size: 34px">Vers&atilde;o: <strong>1.4.2</strong></label>
+                                <label style="font-size: 34px">Vers&atilde;o: <strong>1.4.3</strong></label>
                             </div>
 
                             <br style="clear: both;"/>
@@ -75,7 +75,7 @@
                             <sort_order>1</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </active>
                         <title translate="label">
                             <label>Title</label>
@@ -83,7 +83,7 @@
                             <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </title>
                         <order_status translate="label">
                             <label>New order status</label>
@@ -92,7 +92,7 @@
                             <sort_order>5</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </order_status>
                         <custom_text translate="label">
                             <label>Texto Personalizado</label>
@@ -100,7 +100,7 @@
                             <sort_order>6</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </custom_text>
 						<banco translate="label">
                             <label>Banco</label>
@@ -109,7 +109,7 @@
                             <sort_order>7</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </banco>
 						<prazo_pagamento translate="label">
                             <label>Vencimento (em dias)</label>
@@ -117,7 +117,7 @@
                             <sort_order>8</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Será também utilizado ao gerar a segunda via.</comment>
                         </prazo_pagamento>
 						<taxa_boleto translate="label">
@@ -126,7 +126,7 @@
                             <sort_order>9</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Coloque somente números ou deixe em branco para não cobrar.</comment>
                         </taxa_boleto>
 						<demonstrativo1 translate="label">
@@ -135,7 +135,7 @@
                             <sort_order>10</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Primeira linha de informações.</comment>
                         </demonstrativo1>
 						<demonstrativo2 translate="label">
@@ -144,7 +144,7 @@
                             <sort_order>11</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Segunda linha de informações.</comment>
                         </demonstrativo2>
 						<demonstrativo3 translate="label">
@@ -153,7 +153,7 @@
                             <sort_order>12</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Terceira linha de informações.</comment>
                         </demonstrativo3>
 						<instrucoes1 translate="label">
@@ -162,7 +162,7 @@
                             <sort_order>13</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Primeira linha de instruções.</comment>
                         </instrucoes1>
 						<instrucoes2 translate="label">
@@ -171,7 +171,7 @@
                             <sort_order>14</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Segunda linha de instruções.</comment>
                         </instrucoes2>
 						<instrucoes3 translate="label">
@@ -180,7 +180,7 @@
                             <sort_order>15</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Terceira linha de instruções.</comment>
                         </instrucoes3>
 						<instrucoes4 translate="label">
@@ -189,7 +189,7 @@
                             <sort_order>16</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Quarta linha de instruções.</comment>
                         </instrucoes4>
 						<secancelado translate="label">
@@ -199,7 +199,7 @@
                             <source_model>MagentoBR_BoletoBancario_Model_Source_SeCancelado</source_model>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Deseja que o cliente veja a segunda via caso o pedido sejá cancelado?<![CDATA[
 						<br />
 						<br />
@@ -214,7 +214,7 @@
                             <sort_order>19</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Verifique com seu gerente a necessidade do uso.</comment>
                         </inicio_nosso_numero>
 						<digitos_nosso_numero translate="label">
@@ -223,7 +223,7 @@
                             <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Verifique com seu gerente a necessidade do uso.</comment>
                         </digitos_nosso_numero>
 						<agencia translate="label">
@@ -232,7 +232,7 @@
                             <sort_order>21</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Coloque somente números e não coloque o dígito.(Exemplo: 1234-9 Coloque:1234)</comment>
                         </agencia>
 						<agencia_dv translate="label">
@@ -241,7 +241,7 @@
                             <sort_order>22</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Caso tenha, coloque somente números.(Exemplo: 1234-9 Coloque:9)</comment>
                         </agencia_dv>
 						<conta translate="label">
@@ -250,7 +250,7 @@
                             <sort_order>23</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Coloque somente números e não coloque o dígito.(Exemplo: 01234-9 Coloque:01234)</comment>
                         </conta>
 						<conta_dv translate="label">
@@ -259,7 +259,7 @@
                             <sort_order>24</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Caso tenha, coloque somente números.(Exemplo: 01234-9 Coloque:9)<![CDATA[
 						<br />
 						<br />
@@ -275,7 +275,7 @@
                             <sort_order>25</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Conta do cedente, somente números. Verifique com seu banco a necessidade.</comment>
                         </conta_cedente>
 						<conta_cedente_dv translate="label">
@@ -284,7 +284,7 @@
                             <sort_order>26</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Dígito Verificador da Conta do cedente, somente números. Verifique com seu banco a necessidade.<![CDATA[
 						<br />
 						<div class="divider"></div>
@@ -296,7 +296,7 @@
                             <sort_order>27</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Verifique com seu banco qual carteira utilizar.</comment>
                         </carteira>
 						<variacao_carteira translate="label">
@@ -305,7 +305,7 @@
                             <sort_order>28</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Verifique com seu banco qual utilizar.</comment>
                         </variacao_carteira>
 						<especie translate="label">
@@ -314,7 +314,7 @@
                             <sort_order>29</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>OPCIONAL - Espécie da moeda geralmente R$.<![CDATA[
 						<br />
 						<br />
@@ -330,7 +330,7 @@
                             <sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Informe o contrato.</comment>
                         </contrato>
 						<convenio translate="label">
@@ -339,7 +339,7 @@
                             <sort_order>31</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Informe o convênio.<![CDATA[
 						<br />
 						<div class="divider"></div>
@@ -351,7 +351,7 @@
                             <sort_order>32</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Coloque algum texto de seu desejo para identificar no boleto, esse texto ficará acima do seu endereço.</comment>
                         </identificacao>
 						<cedente translate="label">
@@ -360,7 +360,7 @@
                             <sort_order>33</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Informe a Razão Social da Empresa.</comment>
                         </cedente>
 						<cpf_cnpj translate="label">
@@ -369,7 +369,7 @@
                             <sort_order>34</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Informe com dígitos (Exemplo: 11.590.751/0001-99).</comment>
                         </cpf_cnpj>
 						<endereco translate="label">
@@ -378,7 +378,7 @@
                             <sort_order>35</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Informe seu endereço.</comment>
                         </endereco>
 						<cidade_uf translate="label">
@@ -387,7 +387,7 @@
                             <sort_order>36</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
 							<comment>Informe sua cidade e UF (Exemplo: São Paulo / SP).</comment>
                         </cidade_uf>
 						<path_logo>
@@ -396,7 +396,7 @@
                             <sort_order>37</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </path_logo>
                         <sort_order translate="label">
                             <label>Sort order</label>
@@ -404,7 +404,7 @@
                             <sort_order>100</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </sort_order>
                          <allowspecific translate="label">
                             <label>payment from applicable countries</label>

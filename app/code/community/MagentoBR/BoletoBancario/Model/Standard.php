@@ -332,8 +332,8 @@ class MagentoBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_
         // return $home_url .'BoletoBancario/standard/gerar';
 		
 		//Esta versao esta ok com SSL
-		// $home_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
-		$home_url = Mage::app()->getStore($storeId)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK);
+		$home_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); // Somente uma Loja.
+		// $home_url = Mage::app()->getStore($storeId)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); // Multi Loja.
 		return $home_url .'BoletoBancario/standard/gerar';
     }
 	
@@ -345,8 +345,8 @@ class MagentoBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_
         // return $home_url .'BoletoBancario/standard/gerar';
 		
 		//Esta versao esta ok com SSL
-		// $home_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
-		$home_url = Mage::app()->getStore($storeId)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK);
+		$home_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); // Somente uma Loja.
+		// $home_url = Mage::app()->getStore($storeId)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); // Multi Loja.
 		return $home_url .'BoletoBancario/standard/success';
     }
 	

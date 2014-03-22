@@ -1,3 +1,9 @@
+==== 1.4.3 - 25/09/2013 ====
+- O código para levar em consideração a loja estava dando erro em alguns sites, foi comentado do código. Arquivo alterado:
+app/code/community/MagentoBR/BoletoBancaria/Model/Standard.php
+- Linhas alteradas: 335, 336, 348 e 349.
+- Alteração para pode alterar configurações por loja ou visão.
+
 ==== 1.4.2 - 28/08/2013 ====
 - Agora o módulo leva em consideração o código da loja, correção apresentada por Celso Jubram Sawaia.
 - Correção do arquivo funcoes_cef.php que estava incorreto para gerar a barra do boleto. Correção apresentada por Adiel Benicio.

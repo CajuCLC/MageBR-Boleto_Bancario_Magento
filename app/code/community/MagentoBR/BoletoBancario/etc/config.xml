@@ -23,7 +23,7 @@
 <config>
     <modules>
         <MagentoBR_BoletoBancario>
-            <version>1.4.2</version>          
+            <version>1.4.3</version>          
         </MagentoBR_BoletoBancario>
     </modules>
     <global>
