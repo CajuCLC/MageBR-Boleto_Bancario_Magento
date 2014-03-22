@@ -43,8 +43,8 @@
 	<?php } ?>
 			
 			<?php if (strpos($_SERVER['REQUEST_URI'], 'success') !== false) { ?>
-				<p>Você será redirecionado para a página de impressão do boleto em 5 segundos. <br />
-					Se isso não ocorrer, clique no botão "Exibir Boleto".
+				<p>VocÃª serÃ¡ redirecionado para a pÃ¡gina de impressÃ£o do boleto em 5 segundos. <br />
+					Se isso nÃ£o ocorrer, clique no botÃ£o "Exibir Boleto".
 				</p>
 				<script type="text/javascript"> 
 					window.setTimeout('abreJanelaBoleto(false)', 5000);
@@ -58,8 +58,9 @@ $order_id=$this->getRequest()->getParam('order_id');
 $domain=$_SERVER['REQUEST_URI'];
 $domain2=$_SERVER['HTTP_HOST'];
 $url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$urlhttps="https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $home_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
-if (($url==$home_url .'index.php/sales/order/view/order_id/'. $order_id .'/') || ($url==$home_url .'sales/order/view/order_id/'. $order_id .'/')) : {
+if (($url==$home_url .'index.php/sales/order/view/order_id/'. $order_id .'/') || ($url==$home_url .'sales/order/view/order_id/'. $order_id .'/') || ($urlhttps==$home_url .'sales/order/view/order_id/'. $order_id .'/') || ($urlhttps==$home_url .'sales/order/view/order_id/'. $order_id .'/')) : {
 echo $this->getMethod()->getTitle();
 echo "<br />";
 $secancelado = $this->getStandard()->getConfigData('secancelado');
@@ -67,7 +68,7 @@ $statusordem = $this->getOrder()->getStatus();
 
 
 		if ($secancelado=="sim") { ?>
-			<button type="button" class="button" target="boleto" onclick="abreJanelaBoleto(true)"><img src="<?php echo($this->getSkinUrl('images/boleto/boleto.gif')) ?>" /><br /><span><span><?php echo $this->__('Emitir 2ª Via do Boleto') ?></span></span></button><br />
+			<button type="button" class="button" target="boleto" onclick="abreJanelaBoleto(true)"><img src="<?php echo($this->getSkinUrl('images/boleto/boleto.gif')) ?>" /><br /><span><span><?php echo $this->__('Emitir 2Âª Via do Boleto') ?></span></span></button><br />
 			
 	<?php }
 		else {
@@ -77,7 +78,7 @@ $statusordem = $this->getOrder()->getStatus();
 		
 	 else : { ?>
 	 
-			<button type="button" class="button" target="boleto" onclick="abreJanelaBoleto(true)"><img src="<?php echo($this->getSkinUrl('images/boleto/boleto.gif')) ?>" /><br /><span><span><?php echo $this->__('Emitir 2ª Via do Boleto') ?></span></span></button><br />
+			<button type="button" class="button" target="boleto" onclick="abreJanelaBoleto(true)"><img src="<?php echo($this->getSkinUrl('images/boleto/boleto.gif')) ?>" /><br /><span><span><?php echo $this->__('Emitir 2Âª Via do Boleto') ?></span></span></button><br />
 	
 	<?php } ?>
 	<?php endif; ?>
@@ -104,8 +105,8 @@ else : { ?>
 			</script>
 			
 			<?php if (strpos($_SERVER['REQUEST_URI'], 'success') !== false) { ?>
-				<p>Você será redirecionado para a página de impressão do boleto em 5 segundos. <br />
-					Se isso não ocorrer, clique no botão "Exibir Boleto".
+				<p>VocÃª serÃ¡ redirecionado para a pÃ¡gina de impressÃ£o do boleto em 5 segundos. <br />
+					Se isso nÃ£o ocorrer, clique no botÃ£o "Exibir Boleto".
 				</p>
 				<script type="text/javascript"> 
 					window.setTimeout('abreJanelaBoleto(false)', 5000);

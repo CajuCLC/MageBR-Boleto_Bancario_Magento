@@ -15,6 +15,7 @@ class HospedaMagento_BoletoBancario_Model_Source_Bancos
         return array(
             array('value' => 'hsbc', 'label' => 'HSBC'),
             array('value' => 'cef', 'label' => 'Caixa Econômica Federal'),
+			array('value' => 'cef_sigcb', 'label' => 'Caixa Econômica Federal - SIGCB'),
             array('value' => 'caixa', 'label' => 'Caixa Econômica Federal - Alternativo'),
             array('value' => 'cef_sinco', 'label' => 'Caixa Econômica Federal - SINCO'),
             array('value' => 'bb', 'label' => 'Banco do Brasil'),

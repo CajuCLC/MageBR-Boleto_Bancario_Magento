@@ -1,3 +1,8 @@
+==== 1.1.0 - 25/01/2013 ====
+- A função de não permitir 2ª via caso o pedido estivesse cancelado não funcionava em HTTPS. Isto foi corrigido.
+- Inclusão do Caixa Econômica Federal - SIGCB, contribuição de Paulo Mendes (http://www.pvmshopping.com.br/).
+
+
 ==== 1.0.3 - 24/01/2013 ====
 - Remoção de arquivos desnecessários.
 
