@@ -7,12 +7,12 @@ class HospedaMagento_BoletoBancario_Block_Standard_Redirect extends Mage_Core_Bl
 		$standard = Mage::getModel('BoletoBancario/standard');
 
 		//recupera dados da compra
-		/*
 		$order_id = Mage::getSingleton('checkout/session')->getLastOrderId();
 		$order = Mage::getModel('sales/order')->load($order_id);
 		$a = $order->getBillingAddress();
 
 		//envia e-mail com a segunda via do boleto
+		/*
 		$to = $a->getEmail();
 		$from = $this->getStandard()->getConfigData('MarchentEmailID');
 		$subject = "Boleto Bancário - 2? via";
@@ -29,7 +29,7 @@ class HospedaMagento_BoletoBancario_Block_Standard_Redirect extends Mage_Core_Bl
 			->setTarget('boleto')
             ->setUseContainer(true);
         
-		foreach ($standard->getStandardCheckoutFormFields() as $field=>$value) {
+		foreach ($standard->getStandardCheckoutFormFields($order) as $field=>$value) {
             $form->addField($field, 'hidden', array('name'=>$field, 'value'=>$value));
         }
 		
