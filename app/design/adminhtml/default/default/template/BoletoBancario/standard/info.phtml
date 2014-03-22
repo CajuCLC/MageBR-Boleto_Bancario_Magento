@@ -1,0 +1,35 @@
+﻿<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_default
+ * @package    Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<p>
+	<?php echo $this->getMethod()->getTitle() ?><br />
+
+	<?php if ($this->getOrder()) { ?>
+		<button onclick="window.open('<?php echo Mage::getUrl("BoletoBancario/standard/view/order_id/" . $this->getOrder()->getId()) ?>', 'capture_popup','toolbar=0,location=0,directories=0,status=1,menubar=0,scrollbars=1,resizable=0,screenX=0,screenY=0,left=0,top=0,width=765,height=580')">Exibir 2ª via</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<button onclick="window.open('<?php echo Mage::getUrl("BoletoBancario/standard/sendmail/order_id/" . $this->getOrder()->getId()) ?>', 'capture_popup','toolbar=0,location=0,directories=0,status=1,menubar=0,scrollbars=1,resizable=0,screenX=0,screenY=0,left=0,top=0,width=765,height=440')">Enviar 2ª via ao cliente por e-mail</button>
+	<?php } ?>
+</p>

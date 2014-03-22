@@ -1,0 +1,72 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_default
+ * @package    Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<p>
+	<?php echo $this->getMethod()->getTitle() ?><br />
+
+	<?php if ($this->getOrder()) { ?>
+			<script type="text/javascript"> 
+				function abreJanelaBoleto(popup) {
+					var url = '<?php echo Mage::getUrl("BoletoBancario/standard/view/order_id/" . $this->getOrder()->getId()) ?>';
+					if (popup == true) {
+						window.open(url, 'boleto');
+					}
+					else {
+						window.location.href = url;
+					}
+				}
+			</script>
+	<?php } ?>
+			
+			<?php if (strpos($_SERVER['REQUEST_URI'], 'success') !== false) { ?>
+				<p>Você será redirecionado para a página de impressão do boleto em 5 segundos. <br />
+					Se isso não ocorrer, clique no botão "Exibir Boleto".
+				</p>
+				<script type="text/javascript"> 
+					window.setTimeout('abreJanelaBoleto(false)', 5000);
+				</script>
+			<?php } ?>
+	
+			<?php
+$standard = Mage::getSingleton('BoletoBancario/standard');
+$secancelado = $this->getStandard()->getConfigData('secancelado');
+$statusordem = $this->getOrder()->getStatus();
+
+		if ($secancelado=="sim") { ?>
+			<button type="button" class="form-button" target="boleto" onclick="abreJanelaBoleto(true)"><span>Emitir 2ª Via do Boleto</span></button>
+	<?php }
+		else {
+	
+	if($statusordem=="canceled") : {
+		echo "Este pedido foi cancelado."; }
+		
+	 else : { ?>
+			<button type="button" class="form-button" target="boleto" onclick="abreJanelaBoleto(true)"><span>Emitir 2ª Via do Boleto</span></button>
+	
+	<?php } ?>
+	<?php endif; ?>
+	<?php } ?>
+</p>

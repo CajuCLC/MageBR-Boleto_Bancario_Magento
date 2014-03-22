@@ -1,0 +1,49 @@
+==== Instalação do Boleto Bancário com Segunda Via por Hospeda Magento (http://www.hospedamagento.com.br) ===
+
+1. Envie os arquivos para as pastas específicas.
+1.1. Caso utilize o Magento CE 1.4.x ou 1.5.x ou 1.6.x ou 1.7.x com qualquer um dos temas básicos do Magento (instalados de base), somente subir os arquivos como estão.
+1.2. Caso utilize algum tema modificado, precisará mover as seguintes pastas para a pasta de seu tema específico:
+
+/app/design/frontend/base/default/template/BoletoBancario/standard/
+/app/design/frontend/base/default/template/BoletoBancario/BoletoBancario.phtml
+/skin/frontend/base/default/images/cards/
+/skin/frontend/base/default/images/boleto/
+
+2. Após subir os arquivos, limpe o cache imediatamente.
+
+3. Caso apareça algum erro após a instalação e após limpar o cache, delete os arquivos na pasta:
+/app/code/community/HospedaMagento/BoletoBancario/sql/BoletoBancario_setup/
+
+4. A página de sucesso pode ser alterada na pasta:
+/app/design/frontend/base/default/template/BoletoBancario/standard/
+
+Precisa manter o seguinte código para aparecer a opção de boleto na página de sucesso para o cliente:
+<?php /** INCIO GERAR BOLETO SE BOLETO */
+$orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
+Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
+$order = Mage::getModel('sales/order')->loadByIncrementId($orderId);
+if($order->getPayment()->getMethod() == "BoletoBancario_standard"): ?>
+	<center>
+	<button type="button" class="button" onclick="window.open('<?php echo $this->getUrl('BoletoBancario/standard/view/order_id/' . $this->getIncrementId()) ?>')"><span><span><?php echo $this->__('Clique aqui para imprimir o Boleto') ?></span></span><img src="<?php echo($this->getSkinUrl('images/boleto/boleto.gif')) ?>" /></button><br />
+	</center>
+<?php endif; /** FIM GERAR BOLETO SE BOLETO*/?>
+
+5. O módulo oferece a função de envio da segunda via do Boleto por email para o cliente na área do admin, ao acessar o pedido. Para alterar a logomarca da sua empresa, crie um arquivo com o nome logo_boleto.png na pasta /skin/frontend/base/default/images/cards/.
+
+6. Caso ainda tenha algum erro, entre em contato com:
+magentobr@magentobr.com
+magentobr@gmail.com
+
+Tutorial:
+=== MagentoBR - www.boleto.magentobr.com ===
+
+Créditos:
+=============
+-- Projeto BoletoPHP
+	http://boletophp.com.br/
+
+-- Eric Cavalcanti
+	http://www.boleto.magentobr.com
+	
+-- Hospeda Magento
+	http://www.hospedamagento.com.br

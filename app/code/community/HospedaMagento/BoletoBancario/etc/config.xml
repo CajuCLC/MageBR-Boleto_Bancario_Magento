@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Mage
+ * @package    HospedaMagento_BoletoBancario
+ * @author     Eric Cavalcanti (hospedamagento@gmail.com)
+ * @copyright  Copyright (c) 2004-2007 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    OSL 3.0 - http://www.hospedamagento.com.br
+ */
+-->
+<config>
+    <modules>
+        <HospedaMagento_BoletoBancario>
+            <version>1.0.0</version>          
+        </HospedaMagento_BoletoBancario>
+    </modules>
+    <global>
+        <models>
+            <BoletoBancario>
+                <class>HospedaMagento_BoletoBancario_Model</class>
+                <resourceModel>BoletoBancario_mysql4</resourceModel>
+            </BoletoBancario>
+            <BoletoBancario_mysql4>
+                <class>HospedaMagento_BoletoBancario_Model_Mysql4</class>
+                <entities>
+                    <api_debug><table>BoletoBancario_api_debug</table></api_debug>
+                </entities>
+            </BoletoBancario_mysql4>
+			<BoletoBancario_mysql4>
+                <class>HospedaMagento_BoletoBancario_Model_Mysql4</class>
+                <entities>
+                    <BoletoBancario_return><table>BoletoBancario</table></BoletoBancario_return>
+                </entities>
+            </BoletoBancario_mysql4>
+        </models>
+        <resources>
+            <BoletoBancario_setup>
+                <setup>
+                    <module>HospedaMagento_BoletoBancario</module>
+                    <class>HospedaMagento_BoletoBancario_Model_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </BoletoBancario_setup>
+            <BoletoBancario_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </BoletoBancario_write>
+            <BoletoBancario_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </BoletoBancario_read>
+        </resources>
+        <blocks>
+            <BoletoBancario><class>HospedaMagento_BoletoBancario_Block</class></BoletoBancario>
+        </blocks>
+<helpers>
+   <BoletoBancario>
+          <class>HospedaMagento_BoletoBancario_Helper</class>
+    </BoletoBancario>
+</helpers>
+    </global>
+    <frontend>      
+        <routers>
+            <BoletoBancario>
+                <use>standard</use>
+                <args>
+                    <module>HospedaMagento_BoletoBancario</module>
+                    <frontName>BoletoBancario</frontName>
+                </args>
+            </BoletoBancario>
+        </routers>
+        <translate>
+            <modules>
+                <HospedaMagento_BoletoBancario>
+                    <files>
+                        <default>HospedaMagento_BoletoBancario.csv</default>
+                    </files>
+                </HospedaMagento_BoletoBancario>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <BoletoBancario>
+                    <file>BoletoBancario.xml</file>
+                </BoletoBancario>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <HospedaMagento_BoletoBancario>
+                    <files>
+                        <default>HospedaMagento_BoletoBancario.csv</default>
+                    </files>
+                </HospedaMagento_BoletoBancario>
+            </modules>
+        </translate>        
+    </adminhtml>
+    <default>
+         <payment>
+             <BoletoBancario_standard>
+                  <model>BoletoBancario/standard</model>
+                  <title>Boleto Bancário</title>
+                  <allowspecific>1</allowspecific>                  
+				  <custom_text>Após a confirmação do pedido, você será redirecionado para impressão do Boleto Bancário.</custom_text>
+				  <prazo_pagamento>5</prazo_pagamento>
+				  <taxa_boleto>2,5</taxa_boleto>
+				  <inicio_nosso_numero>80</inicio_nosso_numero>
+				  <especie>DM</especie>
+				  <demonstrativo1>Pagamento de compra efetuada em loja virtual</demonstrativo1>
+				  <demonstrativo2>Taxa bancária - R$ $taxa_boleto</demonstrativo2>
+				  <demonstrativo3>Boleto emitido por Hospeda Magento - (www.hospedamagento.com.br)</demonstrativo3>
+				  <instrucoes1>- Sr. Caixa, receber até 10 dias após o vencimento</instrucoes1>
+				  <instrucoes2>- Em caso de dúvidas entre em contato conosco: (xx) xxxx-xxxx ou xxxx@xxxx.com.br</instrucoes2>
+				  <instrucoes3></instrucoes3>
+				  <instrucoes4></instrucoes4>
+                  <path_logo>images/logo_print.gif</path_logo>
+			  </BoletoBancario_standard>
+        </payment>
+    </default>
+</config>

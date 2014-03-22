@@ -1,0 +1,11 @@
+==== 1.0.0 - 21/01/2013 ====
+- Correção de problema de BD e class não encontrada.
+Fatal error: Class 'Mage_BoletoBancario_Helper_Data' not found in /PATH/TO/MAGENTO/app/Mage.php on line 546
+
+
+==== 0.7.0 - 19/01/2013 ====
+- Versão Inicial Gratuita.
+
+
+==== 0.7.0 - 10/2010 ====
+- Versão Inicial Paga.
