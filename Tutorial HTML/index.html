@@ -1,0 +1,210 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title> Manual de Instalação :: Boleto Bancário com Segunda Via - MagentoBR</title>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+<style type="text/css">
+body {
+	-x-system-font:none;
+	background:#fff;
+	color:#2F2F2F;
+	font-family: helvetica, verdana, sans-serif;
+	font-size:11px;
+	line-height:1.55em;
+	padding-boblockquoteom: 50px;	
+}
+
+html {
+	min-height:100%;
+}
+
+form, input {
+	margin: 0px;
+	padding: 0px;
+	display: inline;
+}
+td , p,  a, span, div, li {
+	font: 11px Tahoma,  Helvetica, sans-serif;
+}
+a {
+	text-decoration: none;
+	color: #0B75A7;
+	outline: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a img {
+	border: none;
+}
+
+blockquote{
+	background: #c5e0ec;
+	padding: 4px 10px;
+	border: 1px dotted #1d87b7;
+	display: block;
+}
+
+textarea{
+	background: none;
+	border: none;
+	width: 100%;
+	font: 11px Tahoma, Verdana, Helvetica, sans-serif;	
+}
+
+p {
+	font: 12px Tahoma, Verdana, Helvetica, sans-serif;
+	padding: 0px;
+	
+}
+h1, h2, h3, h4, h6 {
+	padding: 0px;	
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+h1 {font-size: 19px; color: #5184B6;}
+h2 {font-size: 17px; color: #5184B6;}
+h3 {font-size: 15px; color: #5184B6;}
+h4, h5, h6 {font-size: 12px;}
+.catalog-product-view #maincolumn h4 {background:transparent url(../images/hline.gif) repeat-x scroll left boblockquoteom; color: #5FA2CB; margin-top: 10px !important; line-height: 18px;}
+
+ul, li {
+	margin: 5px 30px;;
+	padding: 0px;
+}
+
+.footerc, .footerl{
+	padding: 5px;
+	text-align: right;
+}
+
+.footerc, .footerl, .footerc *, .footerl *{
+	color: #fff;
+}
+
+.footerc{
+	width: 180px;
+	float: left;
+}
+
+.footerl{
+	width: 380px;
+	float: right;
+}
+.headerc{
+	color: #ffffff;
+	font-size:13px;
+	line-height: 24px;
+	padding: 5px;	
+}
+
+.fright{
+	float: right;
+	font-weight: bold;
+}
+
+OL { counter-reset: item }
+LI { display: block }
+LI:before { content: counters(item, ".") " "; counter-increment: item }
+</style>
+</head>
+<body>
+<table align="center" bgcolor="#ffffff" border="0" cellpadding="1" cellspacing="0" width="800"><tbody>
+	<tr>
+		<td>
+			<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="800"><tbody>
+				<tr>
+					<td align="center">
+						<a href="http://www.magentobr.com/blog/" target="_blank"><img src="images/logo.png" border="0"></a>
+					</td>
+				</tr>
+				<tr>
+					<td  bgcolor="#0B75A7">
+						<center><div class="headerc">==== Instalação do Boleto Bancário com Segunda Via por Eric Cavalcanti - MagentoBR (http://www.magentobr.com) ===</div></center>
+					</td>
+				</tr>
+			</tbody></table><br>
+		</td>
+	</tr>
+</tbody></table>
+
+<table align="center" bgcolor="#ffffff" border="0" cellpadding="1" cellspacing="0" width="800"><tbody>
+	<tr>
+		<td>
+			<table align="center"><tbody>
+				<tr>
+					<td>
+
+<h3>1. Envie os arquivos para as pastas específicas.</h3>
+1.1. Caso utilize o Magento CE 1.4.x ou 1.5.x ou 1.6.x ou 1.7.x ou 1.8.x com qualquer um dos temas básicos do Magento (instalados de base), somente subir os arquivos como estão.<br/>
+1.2. Caso utilize algum tema modificado, precisará mover as seguintes pastas para a pasta de seu tema específico:
+<pre>
+/app/design/frontend/base/default/template/BoletoBancario/standard/
+/app/design/frontend/base/default/template/BoletoBancario/BoletoBancario.phtml
+/skin/frontend/base/default/images/cards/
+/skin/frontend/base/default/images/boleto/
+</pre>
+
+<h3>2. Após subir os arquivos, limpe o cache imediatamente.</h3>
+
+<h3>3. Caso apareça algum erro após a instalação e após limpar o cache, delete os arquivos na pasta:</h3>
+<pre>/app/code/community/MagentoBR/BoletoBancario/sql/BoletoBancario_setup/</pre>
+
+<h3>4. A página de sucesso pode ser alterada na pasta:</h3>
+<pre>/app/design/frontend/base/default/template/BoletoBancario/standard/</pre>
+
+4.1. Precisa manter o seguinte código para aparecer a opção de boleto na página de sucesso para o cliente:
+<blockquote><textarea rows="12">
+<?php /** INCIO GERAR BOLETO SE BOLETO */
+$orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
+Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
+$order = Mage::getModel('sales/order')->loadByIncrementId($orderId);
+if($order->getPayment()->getMethod() == "BoletoBancario_standard"): ?>
+	<center>
+	<button type="button" class="button" onclick="window.open('<?php echo $this->getUrl('BoletoBancario/standard/view/order_id/' . $this->getIncrementId()) ?>')"><span><span><?php echo $this->__('Clique aqui para imprimir o Boleto') ?></span></span><img src="<?php echo($this->getSkinUrl('images/boleto/boleto.gif')) ?>" /></button><br />
+	</center>
+<?php endif; /** FIM GERAR BOLETO SE BOLETO*/?>
+</textarea></blockquote>
+
+<h3>5. O módulo oferece a função de envio da segunda via do Boleto por email para o cliente na área do admin, ao acessar o pedido.</h3>
+5.1. Para alterar a logomarca da sua empresa, crie um arquivo com o nome logo_boleto.png na pasta /skin/frontend/base/default/images/boleto/
+5.2. Para o email funcionar, é necessário criar o email transicional, selecione a opção Boleto Bancário. Faça alterações necessárias.
+5.3. Nas configurações do módulo será necessário escolher o email transicional criado.
+
+<h3>6. Para enviar o link do boleto no email de compra, edite o email que sua loja utiliza e procure por:</h3>
+<pre>{{var payment_html}}</pre>
+
+Logo abaixo insira o código:
+<pre>{{block type='core/template' area='frontend' template='BoletoBancario/BoletoBancario.phtml' order=$order}}</pre>
+
+<h3>7. Caso encontre algum erro, acesse:</h3>
+<a href="https://github.com/CajuCLC/MagentoBR-Boleto_Bancario_Magento" target=_blank>GitHub</a><br/>
+<a href="http://www.forum.magentobr.com" target=_blank>Fórum MagentoBR</a>
+
+<h3>8. Caso precise de instalação, entre em contato com:</h3>
+<a href="mailto:magentobr@magentobr.com?Subject=Instalação Módulo Boleto Bancário" target="_top"><br/>
+<a href="mailto:magentobr@gmail.com?Subject=Instalação Módulo Boleto Bancário" target="_top"><br/>
+<a href="http://www.loja.magentobr.com/boleto-bancario-com-segunda-via.html" target=_blank>Loja MagentoBR</a>
+
+<p class="fright">Atenciosamente, Eric - MagentoBR</p>
+				
+					
+					</td>
+				</tr>
+			</tbody></table>
+		</td>
+	</tr>
+</tbody></table>
+
+<table align="center" bgcolor="#ffffff" border="0" cellpadding="1" cellspacing="0" width="800"><tbody>
+	<tr>
+		<td  bgcolor="#0B75A7">
+			<div class="footerc">Copyright © 2014 <a href="https://magentobr.com/" target="_blank">MagentoBR</a></div>
+			<div class="footerl">
+				&nbsp;|&nbsp;Manual de instalação Boleto Bancário por Eric&nbsp;|&nbsp;
+				<a href="http://www.forum.magentobr.com/" target="_blank">Fórum MagentoBR</a>&nbsp;|&nbsp;
+			</div>
+		</td>
+	</tr>
+</tbody></table>
+
+</body>
+</html>

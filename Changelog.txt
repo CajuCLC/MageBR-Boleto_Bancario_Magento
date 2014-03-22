@@ -1,3 +1,8 @@
+==== 1.5.1 - 22/03/2014 ====
+- Mesmo com a opção de não gerar boleto de pedidos cancelados, o link ainda gerava o boleto. Agora ao tentar gerar o boleto de um pedido cancelado irá redirecionar para o pedido.
+- Alteração do Admin para sempre gerar o boleto, mesmo quando o pedido estiver cancelado.
+- Incluido manual de instalação em HTML.
+
 ==== 1.5.0 - 27/10/2013 ====
 - Alterado como a segunda via do boleto é enviado ao cliente, antes funcionava via função mail do PHP, agora utiliza o próprio Magento para envio.
 - Melhora criada pelo Daniel Salvagni (http://www.dsalvagni.com.br/)

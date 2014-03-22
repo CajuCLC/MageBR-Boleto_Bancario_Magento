@@ -131,6 +131,9 @@ class MagentoBR_BoletoBancario_StandardController extends Mage_Core_Controller_F
 	public function viewAction() {
         $this->getResponse()->setBody($this->getLayout()->createBlock('BoletoBancario/standard_view')->toHtml());
 	}
+	public function viewadminAction() {
+        $this->getResponse()->setBody($this->getLayout()->createBlock('BoletoBancario/standard_view')->toHtml());
+	}
 	
 
     /**
