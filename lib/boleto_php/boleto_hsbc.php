@@ -107,6 +107,8 @@ $dadosboleto["cpf_cnpj"] = $_POST["cpf_cnpj"];
 $dadosboleto["endereco"] = $_POST["endereco"];
 $dadosboleto["cidade_uf"] = $_POST["cidade_uf"];
 $dadosboleto["cedente"] = $_POST["cedente"];
+$dadosboleto["inicio_nosso_numero"] = $_POST["inicio_nosso_numero"];
+$dadosboleto["agencia"] = $_POST["agencia"];
 
 // NÃO ALTERAR!
 include("include/funcoes_hsbc.php"); 

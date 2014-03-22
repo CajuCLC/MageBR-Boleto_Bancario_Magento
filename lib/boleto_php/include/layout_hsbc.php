@@ -102,7 +102,8 @@ número</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src
   <span class="campo"><?php echo $dadosboleto["cedente"]; ?></span></td>
 <td class=cp valign=top width=7 height=12><img height=12 src=<?php echo $home_url . 'lib/boleto_php/imagens/1.png width=1 border=0>' ;?></td><td class=cp valign=top width=126 height=12> 
   <span class="campo">
-  <?php echo $dadosboleto["agencia_codigo"]?>
+  <?php // echo $dadosboleto["agencia_codigo"]?>
+  <?php echo $dadosboleto["agencia"] . "-" . $dadosboleto["agencia_codigo"]?>
   </span></td>
 <td class=cp valign=top width=7 height=12><img height=12 src=<?php echo $home_url . 'lib/boleto_php/imagens/1.png width=1 border=0>' ;?></td><td class=cp valign=top  width=34 height=12><span class="campo">
   <?php echo $dadosboleto["especie"]?>
@@ -114,7 +115,8 @@ número</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src
  </td>
 <td class=cp valign=top width=7 height=12><img height=12 src=<?php echo $home_url . 'lib/boleto_php/imagens/1.png width=1 border=0>' ;?></td><td class=cp valign=top align=right width=120 height=12> 
   <span class="campo">
-  <?php echo $dadosboleto["nosso_numero"]?>
+  <?php // echo $dadosboleto["nosso_numero"]?>
+  <?php echo $dadosboleto["inicio_nosso_numero"]?>
   </span></td>
 </tr><tr><td valign=top width=7 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=7 border=0>' ;?></td><td valign=top width=298 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=298 border=0>' ;?></td><td valign=top width=7 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=7 border=0>' ;?></td><td valign=top width=126 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=126 border=0>' ;?></td><td valign=top width=7 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=7 border=0>' ;?></td><td valign=top width=34 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=34 border=0>' ;?></td><td valign=top width=7 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=7 border=0>' ;?></td><td valign=top width=53 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=53 border=0>' ;?></td><td valign=top width=7 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=7 border=0>' ;?></td><td valign=top width=120 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=120 border=0>' ;?></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src=<?php echo $home_url . 'lib/boleto_php/imagens/1.png width=1 border=0>' ;?></td><td class=ct valign=top colspan=3 height=13>Número 
 do documento</td><td class=ct valign=top width=7 height=13><img height=13 src=<?php echo $home_url . 'lib/boleto_php/imagens/1.png width=1 border=0>' ;?></td><td class=ct valign=top width=132 height=13>CPF/CNPJ</td><td class=ct valign=top width=7 height=13><img height=13 src=<?php echo $home_url . 'lib/boleto_php/imagens/1.png width=1 border=0>' ;?></td><td class=ct valign=top width=134 height=13>Vencimento</td><td class=ct valign=top width=7 height=13><img height=13 src=<?php echo $home_url . 'lib/boleto_php/imagens/1.png width=1 border=0>' ;?></td><td class=ct valign=top width=180 height=13>Valor 
@@ -172,7 +174,8 @@ cedente</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 sr
   </span></td>
 <td class=cp valign=top width=7 height=12><img height=12 src=<?php echo $home_url . 'lib/boleto_php/imagens/1.png width=1 border=0>' ;?></td><td class=cp valign=top align=right width=180 height=12> 
   <span class="campo">
-  <?php echo $dadosboleto["agencia_codigo"]?>
+  <?php // echo $dadosboleto["agencia_codigo"]?>
+  <?php echo $dadosboleto["agencia"] . "-" . $dadosboleto["agencia_codigo"]?>
   </span></td>
 </tr><tr><td valign=top width=7 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=7 border=0>' ;?></td><td valign=top width=472 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=472 border=0>' ;?></td><td valign=top width=7 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=7 border=0>' ;?></td><td valign=top width=180 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=180 border=0>' ;?></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13> 
 <img height=13 src=<?php echo $home_url . 'lib/boleto_php/imagens/1.png width=1 border=0>' ;?></td><td class=ct valign=top width=113 height=13>Data 
@@ -199,7 +202,8 @@ número</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src
    <?php echo $dadosboleto["data_processamento"]?>
    </span></div></td><td class=cp valign=top width=7 height=12><img height=12 src=<?php echo $home_url . 'lib/boleto_php/imagens/1.png width=1 border=0>' ;?></td><td class=cp valign=top align=right width=180 height=12> 
      <span class="campo">
-     <?php echo $dadosboleto["nosso_numero"]?>
+     <?php // echo $dadosboleto["nosso_numero"]?>
+	 <?php echo $dadosboleto["inicio_nosso_numero"]?>
      </span></td>
 </tr><tr><td valign=top width=7 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=7 border=0>' ;?></td><td valign=top width=113 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=113 border=0>' ;?></td><td valign=top width=7 height=1> 
 <img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=7 border=0>' ;?></td><td valign=top width=153 height=1><img height=1 src=<?php echo $home_url . 'lib/boleto_php/imagens/2.png width=153 border=0>' ;?></td><td valign=top width=7 height=1> 

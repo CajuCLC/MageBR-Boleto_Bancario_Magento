@@ -26,7 +26,7 @@
 // | Desenvolvimento Boleto Santander-Banespa : Fabio R. Lenharo		            |
 // +----------------------------------------------------------------------------+
 
-$codigobanco = "353";
+$codigobanco = "033"; //Antigamente era 353
 $codigo_banco_com_dv = geraCodigoBanco($codigobanco);
 $nummoeda = "9";
 $fixo     = "9";   // Numero fixo para a posição 05-05
@@ -42,11 +42,15 @@ $carteira = $dadosboleto["carteira"];
 $codigocliente = formata_numero($dadosboleto["codigo_cliente"],7,0);
 
 //nosso número (sem dv) é 11 digitos
-$nnum = formata_numero($dadosboleto["nosso_numero"],7,0);
+$nnum = formata_numero($dadosboleto["nosso_numero"],12,0);
 //dv do nosso número
 $dv_nosso_numero = modulo_11($nnum,9,0);
 // nosso número (com dvs) são 13 digitos
-$nossonumero = "00000".$nnum.$dv_nosso_numero;
+$nossonumero = $nnum.$dv_nosso_numero;
+
+// número documento é 12 digitos
+$nnum2 = formata_numero($dadosboleto["numero_documento"],12,0);
+$numerodopedido = $nnum2;
 
 $vencimento = $dadosboleto["data_vencimento"];
 
@@ -64,6 +68,7 @@ $dadosboleto["codigo_barras"] = $linha;
 $dadosboleto["linha_digitavel"] = monta_linha_digitavel($linha);
 $dadosboleto["nosso_numero"] = $nossonumero;
 $dadosboleto["codigo_banco_com_dv"] = $codigo_banco_com_dv;
+$dadosboleto["numero_documento"] = $numerodopedido;
 
 function dataJuliano($data) 
 {
@@ -160,11 +165,16 @@ $altura = 50 ;
 //Desenho da barra
 
 
+
+
+
 //Guarda inicial
-?><img src=imagens/p.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
-src=imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
-src=imagens/p.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
-src=imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
+$home_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+?><img src=<?php echo $home_url; ?>lib/boleto_php/imagens/p.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
+src=<?php echo $home_url; ?>lib/boleto_php/imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
+src=<?php echo $home_url; ?>lib/boleto_php/imagens/p.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
+src=<?php echo $home_url; ?>lib/boleto_php/imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
+
 <?php
 $texto = $valor ;
 if((strlen($texto) % 2) <> 0){
@@ -183,7 +193,7 @@ while (strlen($texto) > 0) {
       $f1 = $largo ;
     }
 ?>
-    src=imagens/p.png width=<?php echo $f1?> height=<?php echo $altura?> border=0><img 
+    src=<?php echo $home_url; ?>lib/boleto_php/imagens/p.png width=<?php echo $f1?> height=<?php echo $altura?> border=0><img 
 <?php
     if (substr($f,$i,1) == "0") {
       $f2 = $fino ;
@@ -191,16 +201,16 @@ while (strlen($texto) > 0) {
       $f2 = $largo ;
     }
 ?>
-    src=imagens/b.png width=<?php echo $f2?> height=<?php echo $altura?> border=0><img 
+    src=<?php echo $home_url; ?>lib/boleto_php/imagens/b.png width=<?php echo $f2?> height=<?php echo $altura?> border=0><img 
 <?php
   }
 }
 
 // Draw guarda final
 ?>
-src=imagens/p.png width=<?php echo $largo?> height=<?php echo $altura?> border=0><img 
-src=imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
-src=imagens/p.png width=<?php echo 1?> height=<?php echo $altura?> border=0> 
+src=<?php echo $home_url; ?>lib/boleto_php/imagens/p.png width=<?php echo $largo?> height=<?php echo $altura?> border=0><img 
+src=<?php echo $home_url; ?>lib/boleto_php/imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
+src=<?php echo $home_url; ?>lib/boleto_php/imagens/p.png width=<?php echo 1?> height=<?php echo $altura?> border=0> 
   <?php
 } //Fim da função
 
@@ -213,7 +223,7 @@ function direita($entra,$comp){
 }
 
 function fator_vencimento($data) {
-	$data = explode("/",$data);
+	$data = split("/",$data);
 	$ano = $data[2];
 	$mes = $data[1];
 	$dia = $data[0];

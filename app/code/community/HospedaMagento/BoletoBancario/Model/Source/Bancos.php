@@ -21,6 +21,7 @@ class HospedaMagento_BoletoBancario_Model_Source_Bancos
             array('value' => 'bb', 'label' => 'Banco do Brasil'),
             array('value' => 'bradesco', 'label' => 'Bradesco'),
             array('value' => 'itau', 'label' => 'Itaú'),
+			array('value' => 'santander_banespa', 'label' => 'Santander'),
         );
     }
  }
