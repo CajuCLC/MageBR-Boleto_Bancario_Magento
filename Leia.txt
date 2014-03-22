@@ -1,7 +1,7 @@
-==== Instalação do Boleto Bancário com Segunda Via por Hospeda Magento (http://www.hospedamagento.com.br) ===
+==== Instalação do Boleto Bancário com Segunda Via por MagentoBR (http://www.magentobr.com) ===
 
 1. Envie os arquivos para as pastas específicas.
-1.1. Caso utilize o Magento CE 1.4.x ou 1.5.x ou 1.6.x ou 1.7.x com qualquer um dos temas básicos do Magento (instalados de base), somente subir os arquivos como estão.
+1.1. Caso utilize o Magento CE 1.4.x ou 1.5.x ou 1.6.x ou 1.7.x ou 1.8.x com qualquer um dos temas básicos do Magento (instalados de base), somente subir os arquivos como estão.
 1.2. Caso utilize algum tema modificado, precisará mover as seguintes pastas para a pasta de seu tema específico:
 
 /app/design/frontend/base/default/template/BoletoBancario/standard/
@@ -12,7 +12,7 @@
 2. Após subir os arquivos, limpe o cache imediatamente.
 
 3. Caso apareça algum erro após a instalação e após limpar o cache, delete os arquivos na pasta:
-/app/code/community/HospedaMagento/BoletoBancario/sql/BoletoBancario_setup/
+/app/code/community/MagentoBR/BoletoBancario/sql/BoletoBancario_setup/
 
 4. A página de sucesso pode ser alterada na pasta:
 /app/design/frontend/base/default/template/BoletoBancario/standard/
@@ -49,7 +49,4 @@ Créditos:
 	http://boletophp.com.br/
 
 -- Eric Cavalcanti
-	http://www.boleto.magentobr.com
-	
--- Hospeda Magento
-	http://www.hospedamagento.com.br
+	http://www.magentobr.com
