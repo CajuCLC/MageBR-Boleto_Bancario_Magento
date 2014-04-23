@@ -1,3 +1,9 @@
+==== 1.6.0 - 22/04/2014 ====
+- Correção de página em branco para alguns clientes ao gerar o boleto após o checkout. Correção feita por Wyllyan Odacir Ritter Sapieginski (http://www.ceicom.com.br/).
+- Alteração do nome do módulo para MageBR para ser aceito no Magento Connect.
+- Para atualização, delete o arquivo: app/etc/modules/MagentoBR_BoletoBancario.xml e a pasta: app/code/community/MagentoBR
+- Depois de enviar os novos arquivos, atualize o cache de sua loja.
+
 ==== 1.5.1 - 22/03/2014 ====
 - Mesmo com a opção de não gerar boleto de pedidos cancelados, o link ainda gerava o boleto. Agora ao tentar gerar o boleto de um pedido cancelado irá redirecionar para o pedido.
 - Alteração do Admin para sempre gerar o boleto, mesmo quando o pedido estiver cancelado.
