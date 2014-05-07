@@ -1,3 +1,7 @@
+==== 1.6.1 - 06/05/2014 ====
+- Remoção da pasta MagentoBR. Agora o nome é MageBR.
+
+
 ==== 1.6.0 - 22/04/2014 ====
 - Correção de página em branco para alguns clientes ao gerar o boleto após o checkout. Correção feita por Wyllyan Odacir Ritter Sapieginski (http://www.ceicom.com.br/).
 - Alteração do nome do módulo para MageBR para ser aceito no Magento Connect.
