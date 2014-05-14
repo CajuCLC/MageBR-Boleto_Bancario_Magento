@@ -40,7 +40,14 @@ class MageBR_BoletoBancario_Block_Standard_Info extends Mage_Payment_Block_Info
      */
     public function getOrder()
     {
-        return Mage::registry('current_order');
+        if(Mage::registry('current_order')){
+            return Mage::registry('current_order');
+        }else if($lastOrderId = Mage::getSingleton('checkout/session')->getLastRealOrderId())
+        {
+            return Mage::getModel('sales/order')->loadByIncrementId($lastOrderId);
+        }
+
+        return parent::getOrder();
     }
 
 	public function getStandard()
