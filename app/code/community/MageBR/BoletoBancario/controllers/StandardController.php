@@ -121,11 +121,11 @@ class MageBR_BoletoBancario_StandardController extends Mage_Core_Controller_Fron
 
 		return(true);
     }
-	
+
 	public function gerarAction() {
-		$base_url = Mage::getBaseUrl() . "lib/boleto_php/";
-		require_once $this->getStandard()->getTemplateBoletoUrl();
-		exit();
+		$banco = $this->getStandard()->getConfigData('banco');
+		$template = "BoletoBancario/banco/$banco.phtml";
+		$this->getResponse()->setBody($this->getLayout()->createBlock('core/template')->setTemplate($template)->toHtml());
 	}
 
 	public function viewAction() {
