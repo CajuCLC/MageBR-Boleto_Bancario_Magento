@@ -23,7 +23,7 @@
 <config>
     <modules>
         <MageBR_BoletoBancario>
-            <version>1.6.3</version>          
+            <version>1.6.4</version>          
         </MageBR_BoletoBancario>
     </modules>
     <global>

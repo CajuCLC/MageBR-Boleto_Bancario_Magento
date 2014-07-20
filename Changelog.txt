@@ -1,92 +1,95 @@
+==== 1.6.4 - 20/07/2014 ====
+- Corrigido problema ao gerar o boleto sem a compilaÁ„o ligada.
+
 ==== 1.6.3 - 16/07/2014 ====
-- O m√≥dulo funciona agora com o compilador ligado. Altera√ß√£o feita pelo jarjar123 (https://github.com/jarjar123)
+- O mÛdulo funciona agora com o compilador ligado. AlteraÁ„o feita pelo jarjar123 (https://github.com/jarjar123)
 
 ==== 1.6.2 - 10/07/2014 ====
-- PHP m√°ximo alterado para 5.5.13
+- PHP m·ximo alterado para 5.5.13
 
 ==== 1.6.1 - 06/05/2014 ====
-- Remo√ß√£o da pasta MagentoBR. Agora o nome √© MageBR.
+- RemoÁ„o da pasta MagentoBR. Agora o nome È MageBR.
 
 ==== 1.6.0 - 22/04/2014 ====
-- Corre√ß√£o de p√°gina em branco para alguns clientes ao gerar o boleto ap√≥s o checkout. Corre√ß√£o feita por Wyllyan Odacir Ritter Sapieginski (http://www.ceicom.com.br/).
-- Altera√ß√£o do nome do m√≥dulo para MageBR para ser aceito no Magento Connect.
-- Para atualiza√ß√£o, delete o arquivo: app/etc/modules/MagentoBR_BoletoBancario.xml e a pasta: app/code/community/MagentoBR
+- CorreÁ„o de p·gina em branco para alguns clientes ao gerar o boleto apÛs o checkout. CorreÁ„o feita por Wyllyan Odacir Ritter Sapieginski (http://www.ceicom.com.br/).
+- AlteraÁ„o do nome do mÛdulo para MageBR para ser aceito no Magento Connect.
+- Para atualizaÁ„o, delete o arquivo: app/etc/modules/MagentoBR_BoletoBancario.xml e a pasta: app/code/community/MagentoBR
 - Depois de enviar os novos arquivos, atualize o cache de sua loja.
 
 ==== 1.5.1 - 22/03/2014 ====
-- Mesmo com a op√ß√£o de n√£o gerar boleto de pedidos cancelados, o link ainda gerava o boleto. Agora ao tentar gerar o boleto de um pedido cancelado ir√° redirecionar para o pedido.
-- Altera√ß√£o do Admin para sempre gerar o boleto, mesmo quando o pedido estiver cancelado.
-- Incluido manual de instala√ß√£o em HTML.
+- Mesmo com a opÁ„o de n„o gerar boleto de pedidos cancelados, o link ainda gerava o boleto. Agora ao tentar gerar o boleto de um pedido cancelado ir· redirecionar para o pedido.
+- AlteraÁ„o do Admin para sempre gerar o boleto, mesmo quando o pedido estiver cancelado.
+- Incluido manual de instalaÁ„o em HTML.
 
 ==== 1.5.0 - 27/10/2013 ====
-- Alterado como a segunda via do boleto √© enviado ao cliente, antes funcionava via fun√ß√£o mail do PHP, agora utiliza o pr√≥prio Magento para envio.
+- Alterado como a segunda via do boleto È enviado ao cliente, antes funcionava via funÁ„o mail do PHP, agora utiliza o prÛprio Magento para envio.
 - Melhora criada pelo Daniel Salvagni (http://www.dsalvagni.com.br/)
-- Para entender as altera√ß√µes, visite: http://www.dsalvagni.com.br/magento-enviando-e-mails-do-seu-modulo-pelo-sistema-de-e-mails-do-magento/
+- Para entender as alteraÁıes, visite: http://www.dsalvagni.com.br/magento-enviando-e-mails-do-seu-modulo-pelo-sistema-de-e-mails-do-magento/
 
 ==== 1.4.3 - 25/09/2013 ====
-- O c√≥digo para levar em considera√ß√£o a loja estava dando erro em alguns sites, foi comentado do c√≥digo. Arquivo alterado:
+- O cÛdigo para levar em consideraÁ„o a loja estava dando erro em alguns sites, foi comentado do cÛdigo. Arquivo alterado:
 app/code/community/MagentoBR/BoletoBancario/Model/Standard.php
 - Linhas alteradas: 335, 336, 348 e 349.
-- Altera√ß√£o para poder alterar configura√ß√µes por loja ou vis√£o.
+- AlteraÁ„o para poder alterar configuraÁıes por loja ou vis„o.
 
 ==== 1.4.2 - 28/08/2013 ====
-- Agora o m√≥dulo leva em considera√ß√£o o c√≥digo da loja, Corre√ß√£o apresentada por Celso Jubram Sawaia.
-- Corre√ß√£o do arquivo funcoes_cef.php que estava incorreto para gerar a barra do boleto. Corre√ß√£o apresentada por Adiel Benicio.
+- Agora o mÛdulo leva em consideraÁ„o o cÛdigo da loja, CorreÁ„o apresentada por Celso Jubram Sawaia.
+- CorreÁ„o do arquivo funcoes_cef.php que estava incorreto para gerar a barra do boleto. CorreÁ„o apresentada por Adiel Benicio.
 
 ==== 1.4.1 - 01/06/2013 ====
-- Adicionado coment√°rios abaixo de cada campo para melhorar entendimento.
-- O boleto agora ser√° mantido somente por MagentoBR (http://www.magentobr.com), ent√£o o nome foi alterado.
+- Adicionado coment·rios abaixo de cada campo para melhorar entendimento.
+- O boleto agora ser· mantido somente por MagentoBR (http://www.magentobr.com), ent„o o nome foi alterado.
 
 
 ==== 1.3.3 - 17/04/2013 ====
-- Corre√ß√£o do arquivo Redirect.php que estava dando erro no log, contribui√ß√£o de Gustavo Seixas (http://www.megabrasilia.com.br/).
+- CorreÁ„o do arquivo Redirect.php que estava dando erro no log, contribuiÁ„o de Gustavo Seixas (http://www.megabrasilia.com.br/).
 
 
 ==== 1.3.2 - 15/04/2013 ====
-- InclusÔøΩo do Santander Banespa, contribui√ß√£o de Renato Aleksander http://www.fator5.net/
+- Inclus?o do Santander Banespa, contribuiÁ„o de Renato Aleksander http://www.fator5.net/
 
 
 ==== 1.3.1 - 24/02/2013 ====
-- Alterado a fun√ß√£o split() para explode() nos arquivos funcoes_BANCO.php na pasta /lib/boleto_php/include. A fun√ß√£o split() foi decrapted no PHP 5.3.0.
+- Alterado a funÁ„o split() para explode() nos arquivos funcoes_BANCO.php na pasta /lib/boleto_php/include. A funÁ„o split() foi decrapted no PHP 5.3.0.
 
 
 ==== 1.3.0 - 29/01/2013 ====
-- C√≥digos atualizados para funcionar na vers√£o 1.7.
-- Email de novo pedido sendo enviado ao cliente com um link para gerar o boleto na vers√£o 1.7.
+- CÛdigos atualizados para funcionar na vers„o 1.7.
+- Email de novo pedido sendo enviado ao cliente com um link para gerar o boleto na vers„o 1.7.
 
 
 ==== 1.2.0 - 26/01/2013 ====
-- Corrigido erro gerado no Firefox ao ser redirecionado ao boleto em ambiente seguro (HTTPS), que informava que n√£o era ambiente seguro.
-- Removido o POP UP que abria a p√°gina do boleto. Agora vai direto para a p√°gina success onde o cliente pode clicar e gerar o boleto.
-- Texto alterado e imagem de carregando na p√°gina que redireciona ao boleto. Tamb√©m h√° uma pausa de 2 segundos antes de ser redirecionado.
+- Corrigido erro gerado no Firefox ao ser redirecionado ao boleto em ambiente seguro (HTTPS), que informava que n„o era ambiente seguro.
+- Removido o POP UP que abria a p·gina do boleto. Agora vai direto para a p·gina success onde o cliente pode clicar e gerar o boleto.
+- Texto alterado e imagem de carregando na p·gina que redireciona ao boleto. TambÈm h· uma pausa de 2 segundos antes de ser redirecionado.
 
 
 ==== 1.1.0 - 25/01/2013 ====
-- A fun√ß√£o de n√£o permitir 2¬™ via caso o pedido estivesse cancelado n√£o funcionava em HTTPS. Isto foi corrigido.
-- Inclus√£o do Caixa Econ√¥mica Federal - SIGCB, contribui√ß√£o de Paulo Mendes (http://www.pvmshopping.com.br/).
+- A funÁ„o de n„o permitir 2™ via caso o pedido estivesse cancelado n„o funcionava em HTTPS. Isto foi corrigido.
+- Inclus„o do Caixa EconÙmica Federal - SIGCB, contribuiÁ„o de Paulo Mendes (http://www.pvmshopping.com.br/).
 
 
 ==== 1.0.3 - 24/01/2013 ====
-- Remo√ß√£o de arquivos desnecess√°rios.
+- RemoÁ„o de arquivos desnecess·rios.
 
 
 ==== 1.0.2 - 22/01/2013 ====
-- Remo√ß√£o de arquivos desnecess√°rios.
-- Corre√ß√£o do arquivo Leia.txt.
+- RemoÁ„o de arquivos desnecess·rios.
+- CorreÁ„o do arquivo Leia.txt.
 
 
 ==== 1.0.1 - 21/01/2013 ====
-- Remo√ß√£o de arquivos desnecess√°rios.
+- RemoÁ„o de arquivos desnecess·rios.
 
 
 ==== 1.0.0 - 20/01/2013 ====
-- Corre√ß√£o de problema de BD e class n√£o encontrada.
+- CorreÁ„o de problema de BD e class n„o encontrada.
 Fatal error: Class 'Mage_BoletoBancario_Helper_Data' not found in /PATH/TO/MAGENTO/app/Mage.php on line 546
 
 
 ==== 0.7.0 - 19/01/2013 ====
-- Vers√£o Inicial Gratuita.
+- Vers„o Inicial Gratuita.
 
 
 ==== 0.7.0 - 10/2010 ====
-- Vers√£o Inicial Paga.
+- Vers„o Inicial Paga.
