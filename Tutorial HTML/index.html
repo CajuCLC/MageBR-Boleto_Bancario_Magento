@@ -165,23 +165,17 @@ if($order->getPayment()->getMethod() == "BoletoBancario_standard"): ?>
 </textarea></blockquote>
 
 <h3>5. O módulo oferece a função de envio da segunda via do Boleto por email para o cliente na área do admin, ao acessar o pedido.</h3>
-5.1. Para alterar a logomarca da sua empresa, crie um arquivo com o nome logo_boleto.png na pasta /skin/frontend/base/default/images/boleto/
-5.2. Para o email funcionar, é necessário criar o email transicional, selecione a opção Boleto Bancário. Faça alterações necessárias.
+5.1. Para alterar a logomarca da sua empresa, crie um arquivo com o nome logo_boleto.png na pasta /skin/frontend/base/default/images/boleto/<br />
+5.2. Para o email funcionar, é necessário criar o email transicional, selecione a opção Boleto Bancário. Faça alterações necessárias.<br />
 5.3. Nas configurações do módulo será necessário escolher o email transicional criado.
 
-<h3>6. Para enviar o link do boleto no email de compra, edite o email que sua loja utiliza e procure por:</h3>
-<pre>{{var payment_html}}</pre>
-
-Logo abaixo insira o código:
-<pre>{{block type='core/template' area='frontend' template='BoletoBancario/BoletoBancario.phtml' order=$order}}</pre>
-
-<h3>7. Caso encontre algum erro, acesse:</h3>
+<h3>6. Caso encontre algum erro, acesse:</h3>
 <a href="https://github.com/CajuCLC/MagentoBR-Boleto_Bancario_Magento" target=_blank>GitHub</a><br/>
 <a href="http://www.forum.magentobr.com" target=_blank>Fórum MagentoBR</a>
 
-<h3>8. Caso precise de instalação, entre em contato com:</h3>
-<a href="mailto:magentobr@magentobr.com?Subject=Instalação Módulo Boleto Bancário" target="_top"><br/>
-<a href="mailto:magentobr@gmail.com?Subject=Instalação Módulo Boleto Bancário" target="_top"><br/>
+<h3>7. Caso precise de instalação, entre em contato com:</h3>
+<a href="mailto:magentobr@magentobr.com?Subject=Instalação Módulo Boleto Bancário" target="_top">magentobr@magentobr.com<br/>
+<a href="mailto:magentobr@gmail.com?Subject=Instalação Módulo Boleto Bancário" target="_top">magentobr@gmail.com<br/>
 <a href="http://www.loja.magentobr.com/boleto-bancario-com-segunda-via.html" target=_blank>Loja MagentoBR</a>
 
 <p class="fright">Atenciosamente, Eric - MagentoBR</p>

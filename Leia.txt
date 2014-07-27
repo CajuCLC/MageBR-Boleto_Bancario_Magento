@@ -1,7 +1,7 @@
 ==== Instalação do Boleto Bancário com Segunda Via por MagentoBR (http://www.magentobr.com) ===
 
 1. Envie os arquivos para as pastas específicas.
-1.1. Caso utilize o Magento CE 1.4.x ou 1.5.x ou 1.6.x ou 1.7.x ou 1.8.x com qualquer um dos temas básicos do Magento (instalados de base), somente subir os arquivos como estão.
+1.1. Caso utilize o Magento CE 1.4.x ou 1.5.x ou 1.6.x ou 1.7.x ou 1.8.x ou 1.9.x com qualquer um dos temas básicos do Magento (instalados de base), somente subir os arquivos como estão.
 1.2. Caso utilize algum tema modificado, precisará mover as seguintes pastas para a pasta de seu tema específico:
 
 /app/design/frontend/base/default/template/BoletoBancario/standard/
@@ -32,18 +32,12 @@ if($order->getPayment()->getMethod() == "BoletoBancario_standard"): ?>
 5.1. Para alterar a logomarca da sua empresa, crie um arquivo com o nome logo_boleto.png na pasta /skin/frontend/base/default/images/boleto/
 5.2. Para o email funcionar, é necessário criar o email transicional, selecione a opção Boleto Bancário. Faça alterações necessárias.
 5.3. Nas configurações do módulo será necessário escolher o email transicional criado.
-
-6. Para enviar o link do boleto no email de compra, edite o email que sua loja utiliza e procure por:
- {{var payment_html}}
  
-Logo abaixo insira o código:
- {{block type='core/template' area='frontend' template='BoletoBancario/BoletoBancario.phtml' order=$order}}
- 
-7. Caso encontre algum erro, acesse:
+6. Caso encontre algum erro, acesse:
 GitHub - https://github.com/CajuCLC/MagentoBR-Boleto_Bancario_Magento
 Fórum MagentoBR - http://www.forum.magentobr.com
 
-8. Caso precise de instalação, entre em contato com:
+7. Caso precise de instalação, entre em contato com:
 Eric - magentobr@magentobr.com
 Eric - magentobr@gmail.com
 Loja MagentoBR - http://www.loja.magentobr.com/boleto-bancario-com-segunda-via.html

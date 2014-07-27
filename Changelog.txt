@@ -1,3 +1,7 @@
+==== 1.6.5 - 27/07/2014 ====
+- Removido arquivos desnecessários.
+- Atualizado tutorial.
+
 ==== 1.6.4 - 20/07/2014 ====
 - Corrigido problema ao gerar o boleto sem a compilação ligada.
 
@@ -46,7 +50,7 @@ app/code/community/MagentoBR/BoletoBancario/Model/Standard.php
 
 
 ==== 1.3.2 - 15/04/2013 ====
-- Inclus?o do Santander Banespa, contribuição de Renato Aleksander http://www.fator5.net/
+- Inclusão do Santander Banespa, contribuição de Renato Aleksander http://www.fator5.net/
 
 
 ==== 1.3.1 - 24/02/2013 ====
