@@ -74,12 +74,12 @@ $dadosboleto["demonstrativo1"] = $_POST["demonstrativo1"]; // "Pagamento de Comp
 $dadosboleto["demonstrativo2"] = $_POST["demonstrativo2"]; //"Mensalidade referente a nonon nonooon nononon<br>Taxa bancária - R$ ".number_format($taxa_boleto, 2, ',', '');
 $dadosboleto["demonstrativo3"] = $_POST["demonstrativo3"];
 if ($dadosboleto["demonstrativo2"] == '') {
-	$dadosboleto["demonstrativo2"] = "Taxa bancária - R$ " . number_format($taxa_boleto, 2, ',', '');
+	$dadosboleto["demonstrativo2"] = "Taxa bancária - R$ " . number_format((double)$taxa_boleto, 2, ',', '');
 }
 if ($dadosboleto["demonstrativo3"] == '') {
 	$dadosboleto["demonstrativo3"] = "&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br";
 }
-$dadosboleto["demonstrativo2"] = str_replace('$taxa_boleto', number_format($taxa_boleto, 2, ',', ''), $dadosboleto["demonstrativo2"]);
+$dadosboleto["demonstrativo2"] = str_replace('$taxa_boleto', number_format((double)$taxa_boleto, 2, ',', ''), $dadosboleto["demonstrativo2"]);
 
 // INSTRUÇÕES PARA O CAIXA
 $dadosboleto["instrucoes1"] = $_POST["instrucoes1"]; // "- Sr. Caixa, cobrar multa de 2% após o vencimento";

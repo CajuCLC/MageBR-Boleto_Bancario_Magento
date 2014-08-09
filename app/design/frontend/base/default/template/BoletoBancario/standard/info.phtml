@@ -43,11 +43,11 @@
 	<?php } ?>
 			
 			<?php if (strpos($_SERVER['REQUEST_URI'], 'success') !== false) { ?>
-				<p>VocÃª serÃ¡ redirecionado para a pÃ¡gina de impressÃ£o do boleto em 5 segundos. <br />
-					Se isso nÃ£o ocorrer, clique no botÃ£o "Exibir Boleto".
+				<p>Voc&ecirc; ser&aacute; redirecionado para a p&aacute;gina de impress&atilde;o do boleto em 5 segundos. <br />
+					Se isso n&atilde;o ocorrer, clique no bot&atilde;o "Exibir Boleto".
 				</p>
 				<script type="text/javascript"> 
-					window.setTimeout('abreJanelaBoleto(false)', 5000);
+					window.setTimeout('abreJanelaBoleto(true)', 5000);
 				</script>
 			<?php } ?>
 
@@ -102,17 +102,17 @@ else : { ?>
 					}
 				}
 			</script>
-			
+			<?php /*
 			<?php if (strpos($_SERVER['REQUEST_URI'], 'success') !== false) { ?>
-				<p>VocÃª serÃ¡ redirecionado para a pÃ¡gina de impressÃ£o do boleto em 5 segundos. <br />
-					Se isso nÃ£o ocorrer, clique no botÃ£o "Exibir Boleto".
+				<p>Voc&ecirc; ser&aacute; redirecionado para a p&aacute;gina de impress&atilde;o do boleto em 5 segundos. <br />
+					Se isso n&atilde;o ocorrer, clique no bot&atilde;o "Exibir Boleto".
 				</p>
 				<script type="text/javascript"> 
 					window.setTimeout('abreJanelaBoleto(false)', 5000);
 				</script>
 			<?php } ?>
-	
-			<?php if (Mage::registry('current_order')) { ?>
+	         */?>
+			<?php if ($this->getOrder()) { ?>
 				<button type="button" class="form-button" target="boleto" onclick="abreJanelaBoleto(true)"><span>Exibir Boleto</span></button>
 			<?php } ?>
 	<?php } ?>
