@@ -23,9 +23,9 @@ DAC = Digito de Auto Conferência - Digito de verificação ex: Conta 1018-9  o DAC
 Lembre-se antes de emitir e pagar os boletos, é nescessario que sua conta corrente esteja habilitada junto ao banco para recebê-los. (Caso contrario o valor pago não será creditado em sua conta corrente)
 =============================================================================================*/
 //converte string UTF8 para ISO-8859-1
-foreach ($_POST as $key => $value) {
-    $_POST[$key] = utf8_decode($value);
-}
+// foreach ($_POST as $key => $value) {
+    // $_POST[$key] = utf8_decode($value);
+// }
 
 //  pegando os dados via post
 $caminho = $_POST['base_url'];

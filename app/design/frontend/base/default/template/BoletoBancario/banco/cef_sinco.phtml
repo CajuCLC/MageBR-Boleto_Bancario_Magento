@@ -31,9 +31,9 @@
 // Os valores abaixo podem ser colocados manualmente ou ajustados p/ formulário c/ POST, GET ou de BD (MySql,Postgre,etc)	//
 
 //converte string UTF8 para ISO-8859-1
-foreach ($_POST as $key => $value) {
-    $_POST[$key] = utf8_decode($value);
-}
+// foreach ($_POST as $key => $value) {
+    // $_POST[$key] = utf8_decode($value);
+// }
 
 //  pegando os dados via post
 $caminho = $_POST['base_url'];
