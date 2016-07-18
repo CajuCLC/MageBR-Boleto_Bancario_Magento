@@ -28,7 +28,7 @@
 	<?php echo $this->getMethod()->getTitle() ?><br />
 
 	<?php if ($this->getOrder()) { ?>
-			<script type="text/javascript"> 
+			<script type="text/javascript">
 				function abreJanelaBoleto(popup) {
 					var url = '<?php echo Mage::getUrl("BoletoBancario/standard/view/order_id/" . $this->getOrder()->getId()) ?>';
 					if (popup == true) {
@@ -40,16 +40,16 @@
 				}
 			</script>
 	<?php } ?>
-			
+
 			<?php if (strpos($_SERVER['REQUEST_URI'], 'success') !== false) { ?>
 				<p>Você será redirecionado para a página de impressão do boleto em 5 segundos. <br />
 					Se isso não ocorrer, clique no botão "Exibir Boleto".
 				</p>
-				<script type="text/javascript"> 
+				<script type="text/javascript">
 					window.setTimeout('abreJanelaBoleto(false)', 5000);
 				</script>
 			<?php } ?>
-	
+
 			<?php
 $standard = Mage::getSingleton('BoletoBancario/standard');
 $secancelado = $this->getStandard()->getConfigData('secancelado');
@@ -59,13 +59,13 @@ $statusordem = $this->getOrder()->getStatus();
 			<button type="button" class="form-button" target="boleto" onclick="abreJanelaBoleto(true)"><span>Emitir 2ª Via do Boleto</span></button>
 	<?php }
 		else {
-	
+
 	if($statusordem=="canceled") : {
 		echo "Este pedido foi cancelado."; }
-		
+
 	 else : { ?>
 			<button type="button" class="form-button" target="boleto" onclick="abreJanelaBoleto(true)"><span>Emitir 2ª Via do Boleto</span></button>
-	
+
 	<?php } ?>
 	<?php endif; ?>
 	<?php } ?>
