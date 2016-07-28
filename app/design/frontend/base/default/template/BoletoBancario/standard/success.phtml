@@ -39,15 +39,14 @@
     <p><?php echo $this->__('You will receive an order confirmation email with details of your order and a link to track its progress.') ?></p>
 	
 
-<?php /** INCIO GERAR BOLETO SE BOLETO */
-$orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
-Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
-$order = Mage::getModel('sales/order')->loadByIncrementId($orderId);
-if($order->getPayment()->getMethod() == "BoletoBancario_standard"): ?>
-	<center>
-	<button type="button" class="button" onclick="window.open('<?php echo $this->getUrl('BoletoBancario/standard/view/order_id/' . $order->getId()) ?>')"><span><span><?php echo $this->__('Clique aqui para imprimir o Boleto') ?></span></span><img src="<?php echo($this->getSkinUrl('images/boleto/boleto.gif')) ?>" /></button><br />
-	</center>
-<?php endif; /** FIM GERAR BOLETO SE BOLETO*/?>
+<?php
+    /** INCIO GERAR BOLETO SE BOLETO */
+    $orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
+    Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
+    $order = Mage::getModel('sales/order')->loadByIncrementId($orderId);
+    echo $this->getLayout()->createBlock('core/template')->setTemplate('BoletoBancario/botao-imprimir.phtml')->setOrder($order)->toHtml();
+    /** FIM GERAR BOLETO SE BOLETO*/
+?>
 	
 <?php if ($this->getViewOrder() && $this->getCanPrintOrder()) :?>
     <p>

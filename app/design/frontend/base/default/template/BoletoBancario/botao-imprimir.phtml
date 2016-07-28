@@ -1,0 +1,3 @@
+<?php if($this->getOrder() && $this->getOrder()->getPayment()->getMethod() == "BoletoBancario_standard"): ?>
+    <br/><button type="button" class="button" onclick="window.open('<?php echo $this->getUrl('BoletoBancario/standard/view/order_id/' . $this->getOrder()->getId()) ?>')"><span><span><?php echo $this->__('Clique aqui para imprimir o Boleto') ?></span></span><img src="<?php echo($this->getSkinUrl('images/boleto/boleto.gif')) ?>" /></button><br/>
+<?php endif; ?>
