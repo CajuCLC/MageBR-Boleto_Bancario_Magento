@@ -12,16 +12,27 @@ class MageBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_Abs
     const PAYMENT_TYPE_AUTH = 'AUTHORIZATION';
     const PAYMENT_TYPE_SALE = 'SALE';
 
-  
+
 	protected $_code  = 'BoletoBancario_standard';
 	protected $_canUseInternal = true;
 	protected $_canCapture = true;
-	
+
     protected $_successBlockType = 'BoletoBancario/standard_success';
 	protected $_sucessoBlockType = 'BoletoBancario/standard_sucesso';
     protected $_infoBlockType = 'BoletoBancario/standard_info';
     protected $_formBlockType = 'BoletoBancario/standard_form';
 	protected $_allowCurrencyCode = array('AUD', 'CAD', 'CHF', 'CZK', 'DKK', 'EUR', 'GBP', 'HKD', 'HUF', 'JPY', 'NOK', 'NZD', 'PLN', 'SEK', 'SGD','USD');
+
+    public function canUseCheckout()
+    {
+        $valorMinimo = (float) Mage::getStoreConfig('payment/' . $this->_code . '/valor_minimo');
+
+        if (Mage::helper('checkout/cart')->getQuote()->getSubtotal() < $valorMinimo) {
+            return false;
+        }
+
+        return parent::canUseCheckout();
+    }
 
      /**
      * Get BoletoBancario session namespace
@@ -47,7 +58,7 @@ class MageBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_Abs
      * Get current quote
      *
      * @return Mage_Sales_Model_Quote
-     */    
+     */
     public function getQuote($quote_id = null) {
 		if (!empty($quote_id)) {
 			return Mage::getModel('sales/quote')->load($quote_id);
@@ -85,7 +96,7 @@ class MageBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_Abs
 
         return $block;
     }
-	
+
 	///Add New
 	public function getTransactionId()
     {
@@ -101,7 +112,7 @@ class MageBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_Abs
     public function validate()
     {
         parent::validate();
-		$tWeight=0;		
+		$tWeight=0;
 		 $items = $this->getQuote()->getAllItems();
             if ($items) {
                 $i = 1;
@@ -114,7 +125,7 @@ class MageBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_Abs
 		{
 		  Mage::throwException(Mage::helper('BoletoBancario')->__('   Teste de limite de 30 kg   '));
 		}
-		
+
         return $this;
     }
 
@@ -137,10 +148,10 @@ class MageBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_Abs
     {
 		  return Mage::getUrl('BoletoBancario/standard/redirect');
     }
-	
+
 	// GERA O VIEW PARA SEGUNDA VIA
 	public function getStandardViewFormFields($order) {
-	
+
         $a = $order->getBillingAddress();
 
 		$sArr = array(
@@ -159,37 +170,37 @@ class MageBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_Abs
             'cliente_pais'      => "BRA",
 			'cliente_cpf'       => "?",
 			'total_pedido'      => $order->getGrandTotal(),
-			'prazo_pagamento'	=> $this->getConfigData('prazo_pagamento'),		
-			'taxa_boleto'		=> $this->getConfigData('taxa_boleto'),		
-			'inicio_nosso_numero'	=> $this->getConfigData('inicio_nosso_numero'),		
+			'prazo_pagamento'	=> $this->getConfigData('prazo_pagamento'),
+			'taxa_boleto'		=> $this->getConfigData('taxa_boleto'),
+			'inicio_nosso_numero'	=> $this->getConfigData('inicio_nosso_numero'),
 			'digitos_nosso_numero' => $this->getConfigData('digitos_nosso_numero'),
-			'demonstrativo1'	=> $this->getConfigData('demonstrativo1'),		
-			'demonstrativo2'	=> $this->getConfigData('demonstrativo2'),		
-			'demonstrativo3'	=> $this->getConfigData('demonstrativo3'),		
-			'instrucoes1'		=> $this->getConfigData('instrucoes1'),		
-			'instrucoes2'		=> $this->getConfigData('instrucoes2'),		
-			'instrucoes3'		=> $this->getConfigData('instrucoes3'),		
-			'instrucoes4'		=> $this->getConfigData('instrucoes4'),		
-			'banco'				=> $this->getConfigData('banco'),		
-			'agencia'			=> $this->getConfigData('agencia'),		
-			'agencia_dv'		=> $this->getConfigData('agencia_dv'),		
-			'conta'				=> $this->getConfigData('conta'),		
-			'conta_dv'			=> $this->getConfigData('conta_dv'),		
-			'conta_cedente'		=> $this->getConfigData('conta_cedente'),		
-			'conta_cedente_dv'	=> $this->getConfigData('conta_cedente_dv'),		
-			'carteira'			=> $this->getConfigData('carteira'),		
-			'especie'			=> $this->getConfigData('especie'),		
-			'variacao_carteira'	=> $this->getConfigData('variacao_carteira'),		
-			'contrato'			=> $this->getConfigData('contrato'),		
-			'convenio'			=> $this->getConfigData('convenio'),		
-			'cedente'			=> $this->getConfigData('cedente'),		
-			'identificacao'		=> $this->getConfigData('identificacao'),		
-			'cpf_cnpj'			=> $this->getConfigData('cpf_cnpj'),		
-			'endereco'			=> $this->getConfigData('endereco'),		
-			'cidade_uf'			=> $this->getConfigData('cidade_uf'),		
-			'secancelado' 		=> $this->getConfigData('secancelado'),		
+			'demonstrativo1'	=> $this->getConfigData('demonstrativo1'),
+			'demonstrativo2'	=> $this->getConfigData('demonstrativo2'),
+			'demonstrativo3'	=> $this->getConfigData('demonstrativo3'),
+			'instrucoes1'		=> $this->getConfigData('instrucoes1'),
+			'instrucoes2'		=> $this->getConfigData('instrucoes2'),
+			'instrucoes3'		=> $this->getConfigData('instrucoes3'),
+			'instrucoes4'		=> $this->getConfigData('instrucoes4'),
+			'banco'				=> $this->getConfigData('banco'),
+			'agencia'			=> $this->getConfigData('agencia'),
+			'agencia_dv'		=> $this->getConfigData('agencia_dv'),
+			'conta'				=> $this->getConfigData('conta'),
+			'conta_dv'			=> $this->getConfigData('conta_dv'),
+			'conta_cedente'		=> $this->getConfigData('conta_cedente'),
+			'conta_cedente_dv'	=> $this->getConfigData('conta_cedente_dv'),
+			'carteira'			=> $this->getConfigData('carteira'),
+			'especie'			=> $this->getConfigData('especie'),
+			'variacao_carteira'	=> $this->getConfigData('variacao_carteira'),
+			'contrato'			=> $this->getConfigData('contrato'),
+			'convenio'			=> $this->getConfigData('convenio'),
+			'cedente'			=> $this->getConfigData('cedente'),
+			'identificacao'		=> $this->getConfigData('identificacao'),
+			'cpf_cnpj'			=> $this->getConfigData('cpf_cnpj'),
+			'endereco'			=> $this->getConfigData('endereco'),
+			'cidade_uf'			=> $this->getConfigData('cidade_uf'),
+			'secancelado' 		=> $this->getConfigData('secancelado'),
         );
-		
+
 		$sReq = '';
         $rArr = array();
         /*replacing & char with and. otherwise it will break the post*/
@@ -208,7 +219,7 @@ class MageBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_Abs
         }
         return $rArr;
 	}
-	
+
     /**
      * Retrieve url of skins file
      *
@@ -251,37 +262,37 @@ class MageBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_Abs
             'cliente_pais'      => "BRA",
 			'cliente_cpf'       => "?",
 			'total_pedido'      => $order->getGrandTotal(),
-			'prazo_pagamento'	=> $this->getConfigData('prazo_pagamento'),		
-			'taxa_boleto'		=> $this->getConfigData('taxa_boleto'),		
-			'inicio_nosso_numero'	=> $this->getConfigData('inicio_nosso_numero'),		
+			'prazo_pagamento'	=> $this->getConfigData('prazo_pagamento'),
+			'taxa_boleto'		=> $this->getConfigData('taxa_boleto'),
+			'inicio_nosso_numero'	=> $this->getConfigData('inicio_nosso_numero'),
 			'digitos_nosso_numero' => $this->getConfigData('digitos_nosso_numero'),
-			'demonstrativo1'	=> $this->getConfigData('demonstrativo1'),		
-			'demonstrativo2'	=> $this->getConfigData('demonstrativo2'),		
-			'demonstrativo3'	=> $this->getConfigData('demonstrativo3'),		
-			'instrucoes1'		=> $this->getConfigData('instrucoes1'),		
-			'instrucoes2'		=> $this->getConfigData('instrucoes2'),		
-			'instrucoes3'		=> $this->getConfigData('instrucoes3'),		
-			'instrucoes4'		=> $this->getConfigData('instrucoes4'),		
-			'banco'				=> $this->getConfigData('banco'),		
-			'agencia'			=> $this->getConfigData('agencia'),		
-			'agencia_dv'		=> $this->getConfigData('agencia_dv'),		
-			'conta'				=> $this->getConfigData('conta'),		
-			'conta_dv'			=> $this->getConfigData('conta_dv'),		
-			'conta_cedente'		=> $this->getConfigData('conta_cedente'),		
-			'conta_cedente_dv'	=> $this->getConfigData('conta_cedente_dv'),		
-			'carteira'			=> $this->getConfigData('carteira'),		
-			'especie'			=> $this->getConfigData('especie'),		
-			'variacao_carteira'	=> $this->getConfigData('variacao_carteira'),		
-			'contrato'			=> $this->getConfigData('contrato'),		
-			'convenio'			=> $this->getConfigData('convenio'),		
-			'cedente'			=> $this->getConfigData('cedente'),		
-			'identificacao'		=> $this->getConfigData('identificacao'),		
-			'cpf_cnpj'			=> $this->getConfigData('cpf_cnpj'),		
-			'endereco'			=> $this->getConfigData('endereco'),		
-			'cidade_uf'			=> $this->getConfigData('cidade_uf'),		
-			'secancelado' 		=> $this->getConfigData('secancelado'),		
+			'demonstrativo1'	=> $this->getConfigData('demonstrativo1'),
+			'demonstrativo2'	=> $this->getConfigData('demonstrativo2'),
+			'demonstrativo3'	=> $this->getConfigData('demonstrativo3'),
+			'instrucoes1'		=> $this->getConfigData('instrucoes1'),
+			'instrucoes2'		=> $this->getConfigData('instrucoes2'),
+			'instrucoes3'		=> $this->getConfigData('instrucoes3'),
+			'instrucoes4'		=> $this->getConfigData('instrucoes4'),
+			'banco'				=> $this->getConfigData('banco'),
+			'agencia'			=> $this->getConfigData('agencia'),
+			'agencia_dv'		=> $this->getConfigData('agencia_dv'),
+			'conta'				=> $this->getConfigData('conta'),
+			'conta_dv'			=> $this->getConfigData('conta_dv'),
+			'conta_cedente'		=> $this->getConfigData('conta_cedente'),
+			'conta_cedente_dv'	=> $this->getConfigData('conta_cedente_dv'),
+			'carteira'			=> $this->getConfigData('carteira'),
+			'especie'			=> $this->getConfigData('especie'),
+			'variacao_carteira'	=> $this->getConfigData('variacao_carteira'),
+			'contrato'			=> $this->getConfigData('contrato'),
+			'convenio'			=> $this->getConfigData('convenio'),
+			'cedente'			=> $this->getConfigData('cedente'),
+			'identificacao'		=> $this->getConfigData('identificacao'),
+			'cpf_cnpj'			=> $this->getConfigData('cpf_cnpj'),
+			'endereco'			=> $this->getConfigData('endereco'),
+			'cidade_uf'			=> $this->getConfigData('cidade_uf'),
+			'secancelado' 		=> $this->getConfigData('secancelado'),
         );
-		
+
 		$sReq = '';
         $rArr = array();
         /*replacing & char with and. otherwise it will break the post*/
@@ -300,7 +311,7 @@ class MageBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_Abs
         }
         return $rArr;
 	}
-	
+
 	public function getOrder($order_id = null) {
 		if (empty($order_id)) {
 			$order = Mage::registry('current_order');
@@ -308,7 +319,7 @@ class MageBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_Abs
 		else {
 			$order = Mage::getModel('sales/order')->load($order_id);
 		}
-		
+
 		if (empty($order)) {
 			$order_id = Mage::getSingleton('checkout/session')->getLastOrderId();
 			$order = Mage::getModel('sales/order')->load($order_id);
@@ -320,7 +331,7 @@ class MageBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_Abs
 	private function getHost($url) {
 		// get host name from URL
 		preg_match('@^(?:http(s*)://)?([^/]+)@i', $url, $matches);
-		
+
 		return($matches[1] . $matches[2]);
 	}
 
@@ -330,38 +341,38 @@ class MageBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_Abs
 		// Esta versao da problemas com SSL.
 		// $url = Mage::getUrl("BoletoBancario/standard/gerar",array('_secure'=>true));
         // return $home_url .'BoletoBancario/standard/gerar';
-		
+
 		//Esta versao esta ok com SSL
 		$home_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); // Somente uma Loja.
 		// $home_url = Mage::app()->getStore($storeId)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); // Multi Loja.
 		return $home_url .'BoletoBancario/standard/gerar';
     }
-	
+
 	// public function usado no checkout.
     public function getBoletoBancarioUrl()
     {
 		// Esta versao da problemas com SSL.
 		// $url = Mage::getUrl("BoletoBancario/standard/gerar",array('_secure'=>true));
         // return $home_url .'BoletoBancario/standard/gerar';
-		
+
 		//Esta versao esta ok com SSL
 		$home_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); // Somente uma Loja.
 		// $home_url = Mage::app()->getStore($storeId)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); // Multi Loja.
 		return $home_url .'BoletoBancario/standard/success';
     }
-	
+
 	public function getLibBoletoUrl() {
 		$urlBase = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
 		$urlBase = 'http://' . $this->getHost($urlBase);
-		
-		$ret = $urlBase . "/lib/boleto_php"; 
-		
+
+		$ret = $urlBase . "/lib/boleto_php";
+
 		return($ret);
 	}
 
 	public function getTemplateBoletoUrl() {
-		$ret = $GLOBALS['paths'][3] . "/boleto_php/boleto_" . $this->getConfigData('banco') . ".php"; 
-		
+		$ret = $GLOBALS['paths'][3] . "/boleto_php/boleto_" . $this->getConfigData('banco') . ".php";
+
 		return($ret);
 	}
 
@@ -373,17 +384,17 @@ class MageBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_Abs
 		}
 		return $ret;
 	}
-	
+
 	public function updateOrder($FromData)
 	{
-		
+
 	}
 
     public function ipnPostSubmit()
     {
     }
 
-	public function sendHTMLemail($message, $from='', $to='', $subject) 
+	public function sendHTMLemail($message, $from='', $to='', $subject)
 	{
 		if ($to == '') { //recupera o e-mail do cliente
 			$to = $this->getQuote()->getShippingAddress()->getEmail();
@@ -396,7 +407,7 @@ class MageBR_BoletoBancario_Model_Standard extends Mage_Payment_Model_Method_Abs
 		//options to send to cc+bcc
 		//$headers .= "Cc: [email]maa@p-i-s.cXom[/email]";
 		//$headers .= "Bcc: [email]email@maaking.cXom[/email]";
-		
-	    return(mail($to,$subject,$message,$headers));    
+
+	    return(mail($to,$subject,$message,$headers));
 	}
 }
