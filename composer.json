@@ -1,7 +1,7 @@
 {
   "name": "magebr/boleto-bancario-magento",
   "type": "magento-module",
-  "version": "1.9.1",
+  "version": "2.0.0",
   "description": "Boleto Bancario para Magento",
   "require": {
     "php": ">=5.4"
