@@ -1,23 +1,23 @@
-==== InstalaÁ„o do Boleto Banc·rio com Segunda Via por MagentoBR (http://www.magentobr.com) ===
+==== Instala√ß√£o do Boleto Banc√°rio com Segunda Via por MagentoBR (http://www.magentobr.com) ===
 
-1. Envie os arquivos para as pastas especÌficas.
-1.1. Caso utilize o Magento CE 1.4.x ou 1.5.x ou 1.6.x ou 1.7.x ou 1.8.x ou 1.9.x com qualquer um dos temas b·sicos do Magento (instalados de base), somente subir os arquivos como est„o.
-1.2. Caso utilize algum tema modificado, precisar· mover as seguintes pastas para a pasta de seu tema especÌfico:
+1. Envie os arquivos para as pastas espec√≠ficas.
+1.1. Caso utilize o Magento CE 1.4.x ou 1.5.x ou 1.6.x ou 1.7.x ou 1.8.x ou 1.9.x com qualquer um dos temas b√°sicos do Magento (instalados de base), somente subir os arquivos como est√£o.
+1.2. Caso utilize algum tema modificado, precisar√° mover as seguintes pastas para a pasta de seu tema espec√≠fico:
 
 /app/design/frontend/base/default/template/BoletoBancario/standard/
 /app/design/frontend/base/default/template/BoletoBancario/BoletoBancario.phtml
 /skin/frontend/base/default/images/cards/
 /skin/frontend/base/default/images/boleto/
 
-2. ApÛs subir os arquivos, limpe o cache imediatamente.
+2. Ap√≥s subir os arquivos, limpe o cache imediatamente.
 
-3. Caso apareÁa algum erro apÛs a instalaÁ„o e apÛs limpar o cache, delete os arquivos na pasta:
+3. Caso apare√ßa algum erro ap√≥s a instala√ß√£o e ap√≥s limpar o cache, delete os arquivos na pasta:
 /app/code/community/MagentoBR/BoletoBancario/sql/BoletoBancario_setup/
 
-4. A p·gina de sucesso pode ser alterada na pasta:
+4. A p√°gina de sucesso pode ser alterada na pasta:
 /app/design/frontend/base/default/template/BoletoBancario/standard/
 
-Precisa manter o seguinte cÛdigo para aparecer a opÁ„o de boleto na p·gina de sucesso para o cliente:
+Precisa manter o seguinte c√≥digo para aparecer a op√ß√£o de boleto na p√°gina de sucesso para o cliente:
 <?php /** INCIO GERAR BOLETO SE BOLETO */
 $orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
 Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
@@ -28,16 +28,16 @@ if($order->getPayment()->getMethod() == "BoletoBancario_standard"): ?>
 	</center>
 <?php endif; /** FIM GERAR BOLETO SE BOLETO*/?>
 
-5. O mÛdulo oferece a funÁ„o de envio da segunda via do Boleto por email para o cliente na ·rea do admin, ao acessar o pedido.
+5. O m√≥dulo oferece a fun√ß√£o de envio da segunda via do Boleto por email para o cliente na √°rea do admin, ao acessar o pedido.
 5.1. Para alterar a logomarca da sua empresa, crie um arquivo com o nome logo_boleto.png na pasta /skin/frontend/base/default/images/boleto/
-5.2. Para o email funcionar, È necess·rio criar o email transicional, selecione a opÁ„o Boleto Banc·rio. FaÁa alteraÁıes necess·rias.
-5.3. Nas configuraÁıes do mÛdulo ser· necess·rio escolher o email transicional criado.
+5.2. Para o email funcionar, √© necess√°rio criar o email transicional, selecione a op√ß√£o Boleto Banc√°rio. Fa√ßa altera√ß√µes necess√°rias.
+5.3. Nas configura√ß√µes do m√≥dulo ser√° necess√°rio escolher o email transicional criado.
  
 6. Caso encontre algum erro, acesse:
 GitHub - https://github.com/CajuCLC/MagentoBR-Boleto_Bancario_Magento
-FÛrum MagentoBR - http://www.forum.magentobr.com
+F√≥rum MagentoBR - http://www.forum.magentobr.com
 
-7. Caso precise de instalaÁ„o, entre em contato com:
+7. Caso precise de instala√ß√£o, entre em contato com:
 Eric - magentobr@magentobr.com
 Eric - magentobr@gmail.com
 Loja MagentoBR - http://www.loja.magentobr.com/boleto-bancario-com-segunda-via.html
@@ -45,7 +45,7 @@ Loja MagentoBR - http://www.loja.magentobr.com/boleto-bancario-com-segunda-via.h
 Tutorial:
 === MagentoBR - www.boleto.magentobr.com ===
 
-CrÈditos:
+Cr√©ditos:
 =============
 -- Projeto BoletoPHP
 	http://boletophp.com.br/

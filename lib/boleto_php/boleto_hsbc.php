@@ -1,11 +1,11 @@
 <?php
 // +----------------------------------------------------------------------+
-// | BoletoPhp - Versão Beta                                              |
+// | BoletoPhp - VersÃ£o Beta                                              |
 // +----------------------------------------------------------------------+
-// | Este arquivo está disponível sob a Licença GPL disponível pela Web   |
+// | Este arquivo estÃ¡ disponÃ­vel sob a LicenÃ§a GPL disponÃ­vel pela Web   |
 // | em http://pt.wikipedia.org/wiki/GNU_General_Public_License           |
-// | Você deve ter recebido uma cópia da GNU Public License junto com     |
-// | esse pacote; se não, escreva para:                                   |
+// | VocÃª deve ter recebido uma cÃ³pia da GNU Public License junto com     |
+// | esse pacote; se nÃ£o, escreva para:                                   |
 // |                                                                      |
 // | Free Software Foundation, Inc.                                       |
 // | 59 Temple Place - Suite 330                                          |
@@ -13,22 +13,22 @@
 // +----------------------------------------------------------------------+
 
 // +----------------------------------------------------------------------+
-// | Originado do Projeto BBBoletoFree que tiveram colaborações de Daniel |
+// | Originado do Projeto BBBoletoFree que tiveram colaboraÃ§Ãµes de Daniel |
 // | William Schultz e Leandro Maniezo que por sua vez foi derivado do	  |
-// | PHPBoleto de João Prado Maia e Pablo Martins F. Costa				        |
+// | PHPBoleto de JoÃ£o Prado Maia e Pablo Martins F. Costa				        |
 // | 														                                   			  |
 // | Se vc quer colaborar, nos ajude a desenvolver p/ os demais bancos :-)|
 // | Acesse o site do Projeto BoletoPhp: www.boletophp.com.br             |
 // +----------------------------------------------------------------------+
 
 // +----------------------------------------------------------------------+
-// | Equipe Coordenação Projeto BoletoPhp: <boletophp@boletophp.com.br>   |
-// | Desenvolvimento Boleto HSBC: Bruno Leonardo M. F. Gonçalves          |
+// | Equipe CoordenaÃ§Ã£o Projeto BoletoPhp: <boletophp@boletophp.com.br>   |
+// | Desenvolvimento Boleto HSBC: Bruno Leonardo M. F. GonÃ§alves          |
 // +----------------------------------------------------------------------+
 
 
-// ------------------------- DADOS DINÂMICOS DO SEU CLIENTE PARA A GERAÇÃO DO BOLETO (FIXO OU VIA GET) -------------------- //
-// Os valores abaixo podem ser colocados manualmente ou ajustados p/ formulário c/ POST, GET ou de BD (MySql,Postgre,etc)	//
+// ------------------------- DADOS DINÃ‚MICOS DO SEU CLIENTE PARA A GERAÃ‡ÃƒO DO BOLETO (FIXO OU VIA GET) -------------------- //
+// Os valores abaixo podem ser colocados manualmente ou ajustados p/ formulÃ¡rio c/ POST, GET ou de BD (MySql,Postgre,etc)	//
 
 //converte string UTF8 para ISO-8859-1
 // foreach ($_POST as $key => $value) {
@@ -58,11 +58,11 @@ $valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
 
 
 
-$dadosboleto["numero_documento"] = $_POST["ref_transacao"];	// Número do documento - REGRA: Máximo de 13 digitos
+$dadosboleto["numero_documento"] = $_POST["ref_transacao"];	// NÃºmero do documento - REGRA: MÃ¡ximo de 13 digitos
 $dadosboleto["data_vencimento"] = $data_venc; // Data de Vencimento do Boleto - REGRA: Formato DD/MM/AAAA
-$dadosboleto["data_documento"] = date("d/m/Y"); // Data de emissão do Boleto
+$dadosboleto["data_documento"] = date("d/m/Y"); // Data de emissÃ£o do Boleto
 $dadosboleto["data_processamento"] = date("d/m/Y"); // Data de processamento do boleto (opcional)
-$dadosboleto["valor_boleto"] = $valor_boleto; 	// Valor do Boleto - REGRA: Com vírgula e sempre com duas casas depois da virgula
+$dadosboleto["valor_boleto"] = $valor_boleto; 	// Valor do Boleto - REGRA: Com vÃ­rgula e sempre com duas casas depois da virgula
 
 // DADOS DO SEU CLIENTE
 $dadosboleto["sacado"] = $_POST["cliente_nome"];
@@ -75,7 +75,7 @@ $dadosboleto["demonstrativo2"] = $_POST["demonstrativo2"];
 $dadosboleto["demonstrativo3"] = $_POST["demonstrativo3"];
 
 if ($dadosboleto["demonstrativo2"] == '') {
-	$dadosboleto["demonstrativo2"] == "Taxa bancária - R$ " . number_format($taxa_boleto, 2, ',', '');
+	$dadosboleto["demonstrativo2"] == "Taxa bancÃ¡ria - R$ " . number_format($taxa_boleto, 2, ',', '');
 }
 if ($dadosboleto["demonstrativo3"] == '') {
 	$dadosboleto["demonstrativo3"] == "&nbsp; Emitido pelo sistema Projeto BoletoPhp - www.boletophp.com.br";
@@ -94,15 +94,15 @@ $dadosboleto["especie"] =  $_POST["especie"];
 $dadosboleto["especie_doc"] = $_POST["especie"];
 
 
-// ---------------------- DADOS FIXOS DE CONFIGURAÇÃO DO SEU BOLETO --------------- //
+// ---------------------- DADOS FIXOS DE CONFIGURAÃ‡ÃƒO DO SEU BOLETO --------------- //
 
 
 // DADOS PERSONALIZADOS - HSBC
-$dadosboleto["codigo_cedente"] = $_POST["conta_cedente"]; // Código do Cedente (Somente 7 digitos)
-$dadosboleto["carteira"] = $_POST["carteira"];//"CNR";  // Código da Carteira
+$dadosboleto["codigo_cedente"] = $_POST["conta_cedente"]; // CÃ³digo do Cedente (Somente 7 digitos)
+$dadosboleto["carteira"] = $_POST["carteira"];//"CNR";  // CÃ³digo da Carteira
 
 // SEUS DADOS
-$dadosboleto["identificacao"] = $_POST["identificacao"];// "BoletoPhp - Código Aberto de Sistema de Boletos";
+$dadosboleto["identificacao"] = $_POST["identificacao"];// "BoletoPhp - CÃ³digo Aberto de Sistema de Boletos";
 $dadosboleto["cpf_cnpj"] = $_POST["cpf_cnpj"];
 $dadosboleto["endereco"] = $_POST["endereco"];
 $dadosboleto["cidade_uf"] = $_POST["cidade_uf"];
@@ -110,7 +110,7 @@ $dadosboleto["cedente"] = $_POST["cedente"];
 $dadosboleto["inicio_nosso_numero"] = $_POST["inicio_nosso_numero"];
 $dadosboleto["agencia"] = $_POST["agencia"];
 
-// NÃO ALTERAR!
+// NÃƒO ALTERAR!
 include("include/funcoes_hsbc.php"); 
 include("include/layout_hsbc.php");
 ?>

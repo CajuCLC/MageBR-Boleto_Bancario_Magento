@@ -1,11 +1,11 @@
 <?php
 // +----------------------------------------------------------------------+
-// | BoletoPhp - Versão Beta                                              |
+// | BoletoPhp - VersÃ£o Beta                                              |
 // +----------------------------------------------------------------------+
-// | Este arquivo está disponível sob a Licença GPL disponível pela Web   |
+// | Este arquivo estÃ¡ disponÃ­vel sob a LicenÃ§a GPL disponÃ­vel pela Web   |
 // | em http://pt.wikipedia.org/wiki/GNU_General_Public_License           |
-// | Você deve ter recebido uma cópia da GNU Public License junto com     |
-// | esse pacote; se não, escreva para:                                   |
+// | VocÃª deve ter recebido uma cÃ³pia da GNU Public License junto com     |
+// | esse pacote; se nÃ£o, escreva para:                                   |
 // |                                                                      |
 // | Free Software Foundation, Inc.                                       |
 // | 59 Temple Place - Suite 330                                          |
@@ -13,16 +13,16 @@
 // +----------------------------------------------------------------------+
 
 // +----------------------------------------------------------------------+
-// | Originado do Projeto BBBoletoFree que tiveram colaborações de Daniel |
+// | Originado do Projeto BBBoletoFree que tiveram colaboraÃ§Ãµes de Daniel |
 // | William Schultz e Leandro Maniezo que por sua vez foi derivado do	  |
-// | PHPBoleto de João Prado Maia e Pablo Martins F. Costa                |
+// | PHPBoleto de JoÃ£o Prado Maia e Pablo Martins F. Costa                |
 // |                                                                      |
 // | Se vc quer colaborar, nos ajude a desenvolver p/ os demais bancos :-)|
 // | Acesse o site do Projeto BoletoPhp: www.boletophp.com.br             |
 // +----------------------------------------------------------------------+
 
 // +----------------------------------------------------------------------------+
-// | Equipe Coordenação Projeto BoletoPhp: <boletophp@boletophp.com.br>         |
+// | Equipe CoordenaÃ§Ã£o Projeto BoletoPhp: <boletophp@boletophp.com.br>         |
 // | Desenvolvimento Boleto Santander-Banespa : Fabio R. Lenharo                |
 // +----------------------------------------------------------------------------+
 
@@ -39,8 +39,8 @@ if (strrpos($base_url, '/') != strlen($base_url) - 1) {
 }
 
 
-// ------------------------- DADOS DINÂMICOS DO SEU CLIENTE PARA A GERAÇÃO DO BOLETO (FIXO OU VIA GET) -------------------- //
-// Os valores abaixo podem ser colocados manualmente ou ajustados p/ formulário c/ POST, GET ou de BD (MySql,Postgre,etc)	//
+// ------------------------- DADOS DINÃ‚MICOS DO SEU CLIENTE PARA A GERAÃ‡ÃƒO DO BOLETO (FIXO OU VIA GET) -------------------- //
+// Os valores abaixo podem ser colocados manualmente ou ajustados p/ formulÃ¡rio c/ POST, GET ou de BD (MySql,Postgre,etc)	//
 
 // DADOS DO BOLETO PARA O SEU CLIENTE
 $dias_de_prazo_para_pagamento = $_POST["prazo_pagamento"];
@@ -51,12 +51,12 @@ $valor_cobrado = $_POST["total_pedido"]; // Valor - REGRA: Sem pontos na milhar 
 $valor_cobrado = str_replace(",", ".",$valor_cobrado);
 $valor_boleto=number_format($valor_cobrado+$taxa_boleto, 2, ',', '');
 
-$dadosboleto["nosso_numero"] = $_POST["ref_transacao"];  // Nosso numero sem o DV - REGRA: Máximo de 7 caracteres!
+$dadosboleto["nosso_numero"] = $_POST["ref_transacao"];  // Nosso numero sem o DV - REGRA: MÃ¡ximo de 7 caracteres!
 $dadosboleto["numero_documento"] = $_POST["ref_transacao"];	// Num do pedido ou nosso numero
 $dadosboleto["data_vencimento"] = $data_venc; // Data de Vencimento do Boleto - REGRA: Formato DD/MM/AAAA
-$dadosboleto["data_documento"] = date("d/m/Y"); // Data de emissão do Boleto
+$dadosboleto["data_documento"] = date("d/m/Y"); // Data de emissÃ£o do Boleto
 $dadosboleto["data_processamento"] = date("d/m/Y"); // Data de processamento do boleto (opcional)
-$dadosboleto["valor_boleto"] = $valor_boleto; 	// Valor do Boleto - REGRA: Com vírgula e sempre com duas casas depois da virgula
+$dadosboleto["valor_boleto"] = $valor_boleto; 	// Valor do Boleto - REGRA: Com vÃ­rgula e sempre com duas casas depois da virgula
 
 // DADOS DO SEU CLIENTE
 $dadosboleto["sacado"] = $_POST["cliente_nome"]; 
@@ -65,13 +65,13 @@ $dadosboleto["endereco2"] = $_POST["cliente_cep"] . " - " . $_POST["cliente_cida
 
 // INFORMACOES PARA O CLIENTE
 $dadosboleto["demonstrativo1"] = $_POST["demonstrativo1"];
-//$dadosboleto["demonstrativo2"] = "Mensalidade referente a nonon nonooon nononon<br>Taxa bancária - R$ ".number_format($taxa_boleto, 2, ',', '');
-$dadosboleto["demonstrativo2"] = "- Nº do pedido: ".$_POST["ref_transacao"].", para maiores detalhes e 2ª via do boleto acesse o histórico do seu pedido.";
+//$dadosboleto["demonstrativo2"] = "Mensalidade referente a nonon nonooon nononon<br>Taxa bancÃ¡ria - R$ ".number_format($taxa_boleto, 2, ',', '');
+$dadosboleto["demonstrativo2"] = "- NÂº do pedido: ".$_POST["ref_transacao"].", para maiores detalhes e 2Âª via do boleto acesse o histÃ³rico do seu pedido.";
 $dadosboleto["demonstrativo3"] = $_POST["demonstrativo3"];
 
 
 if ($dadosboleto["demonstrativo2"] == '') {
-	$dadosboleto["demonstrativo2"] = "Taxa bancária - R$ " . number_format($taxa_boleto, 2, ',', '');
+	$dadosboleto["demonstrativo2"] = "Taxa bancÃ¡ria - R$ " . number_format($taxa_boleto, 2, ',', '');
 }
 $dadosboleto["demonstrativo2"] = str_replace('$taxa_boleto', number_format($taxa_boleto, 2, ',', ''), $dadosboleto["demonstrativo2"]);
 
@@ -89,14 +89,14 @@ $dadosboleto["especie"] = "R$";
 $dadosboleto["especie_doc"] = $_POST["especie"];
 
 
-// ---------------------- DADOS FIXOS DE CONFIGURAÇÃO DO SEU BOLETO --------------- //
+// ---------------------- DADOS FIXOS DE CONFIGURAÃ‡ÃƒO DO SEU BOLETO --------------- //
 
 
 // DADOS PERSONALIZADOS - SANTANDER BANESPA
-$dadosboleto["codigo_cliente"] = $_POST["convenio"]; // Código do Cliente (PSK) (Somente 7 digitos) "2138611";
+$dadosboleto["codigo_cliente"] = $_POST["convenio"]; // CÃ³digo do Cliente (PSK) (Somente 7 digitos) "2138611";
 $dadosboleto["ponto_venda"] = $_POST["agencia"]; // Ponto de Venda = Agencia "033";
-$dadosboleto["carteira"] = $_POST["carteira"];  // Cobrança Simples - SEM Registro "102";
-$dadosboleto["carteira_descricao"] = $_POST["variacao_carteira"]; // Descrição da Carteira "102 - COBRANÇA SIMPLES";
+$dadosboleto["carteira"] = $_POST["carteira"];  // CobranÃ§a Simples - SEM Registro "102";
+$dadosboleto["carteira_descricao"] = $_POST["variacao_carteira"]; // DescriÃ§Ã£o da Carteira "102 - COBRANÃ‡A SIMPLES";
 
 // SEUS DADOS
 $dadosboleto["identificacao"] = $_POST["identificacao"];
@@ -105,7 +105,7 @@ $dadosboleto["endereco"] = $_POST["endereco"];
 $dadosboleto["cidade_uf"] = $_POST["cidade_uf"];
 $dadosboleto["cedente"] = $_POST["cedente"];
 
-// NÃO ALTERAR!
+// NÃƒO ALTERAR!
 include("include/funcoes_santander_banespa.php"); 
 include("include/layout_santander_banespa.php");
 ?>

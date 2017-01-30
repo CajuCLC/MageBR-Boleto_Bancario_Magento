@@ -7,20 +7,20 @@ Luciano Lima
 www.netdinamica.com.br/boleto
 Suporte: boleto@netdinamica.com.br
 
-Licença de uso:
-A licença de uso deste script é para uso próprio em seu site.
-Não é permitida a venda do mesmo, estando sujeito às penas prevista em lei.
-A netdinamica, não se responsabiliza por prejuízos causados pelo mau uso deste script.
-Bem como imperícia ou alterações indevidas no código fonte do mesmo.
-Caso necessite da licença para revenda entre em contato.
+LicenÃ§a de uso:
+A licenÃ§a de uso deste script Ã© para uso prÃ³prio em seu site.
+NÃ£o Ã© permitida a venda do mesmo, estando sujeito Ã s penas prevista em lei.
+A netdinamica, nÃ£o se responsabiliza por prejuÃ­zos causados pelo mau uso deste script.
+Bem como imperÃ­cia ou alteraÃ§Ãµes indevidas no cÃ³digo fonte do mesmo.
+Caso necessite da licenÃ§a para revenda entre em contato.
 
-Instruções de Uso:
-Sistema para geração de boletos
-Os dados abaixo são apenas um exemplo, estes devem ser substituídos pelos seus dados.
-Estes dados podem vir de um Banco de Dados ou Mesmo de um Formulário WEB
-Caso ainda tenha alguma duvida acesse o nosso site, nele você encontra maiores detalhes.
-DAC = Digito de Auto Conferência - Digito de verificação ex: Conta 1018-9  o DAC (digito) é 9
-Lembre-se antes de emitir e pagar os boletos, é nescessario que sua conta corrente esteja habilitada junto ao banco para recebê-los. (Caso contrario o valor pago não será creditado em sua conta corrente)
+InstruÃ§Ãµes de Uso:
+Sistema para geraÃ§Ã£o de boletos
+Os dados abaixo sÃ£o apenas um exemplo, estes devem ser substituÃ­dos pelos seus dados.
+Estes dados podem vir de um Banco de Dados ou Mesmo de um FormulÃ¡rio WEB
+Caso ainda tenha alguma duvida acesse o nosso site, nele vocÃª encontra maiores detalhes.
+DAC = Digito de Auto ConferÃªncia - Digito de verificaÃ§Ã£o ex: Conta 1018-9  o DAC (digito) Ã© 9
+Lembre-se antes de emitir e pagar os boletos, Ã© nescessario que sua conta corrente esteja habilitada junto ao banco para recebÃª-los. (Caso contrario o valor pago nÃ£o serÃ¡ creditado em sua conta corrente)
 =============================================================================================*/
 //converte string UTF8 para ISO-8859-1
 // foreach ($_POST as $key => $value) {
@@ -64,35 +64,35 @@ $sacado = $sacado1." ".$sacado2." ".$sacado3." ".$sacado4." ".$sacado5;
 
 $valor_boleto = number_format($valor+$taxa_boleto, 2, ',', '');
  
-//=========Dados Obrigatórios para gerar o Boleto
+//=========Dados ObrigatÃ³rios para gerar o Boleto
 $entra["data_vencimento"] 	=  $dtvencimento; // Data de Vencimento do Boleto (DD/MM/AAAA)
-$entra["data_documento"] 	=  $dtcadastro; // Data de emissão do Boleto (DD/MM/AAAA)
-$entra["valor"] 		=  $valor_boleto; 	// Valor do Boleto (Utilizar virgula como separador decimal, não use pontos)
+$entra["data_documento"] 	=  $dtcadastro; // Data de emissÃ£o do Boleto (DD/MM/AAAA)
+$entra["valor"] 		=  $valor_boleto; 	// Valor do Boleto (Utilizar virgula como separador decimal, nÃ£o use pontos)
 $entra["nosso_numero"]	 	=  $documento; 	// Nosso Numero S/ DAC
 $entra["numero_documento"]	=  "1";	// Numero do Pedido ou Nosso Numero
-$entra["carteira"]	=  "01";  // Código da Carteira (00, 01, 8, 9, 80, 81, 82)
+$entra["carteira"]	=  "01";  // CÃ³digo da Carteira (00, 01, 8, 9, 80, 81, 82)
 
-//============Dados da Agência e Conta =========
-$entra["agencia"]		=  "3127"; 		// Numero da Agência 4 Digitos s/DAC
+//============Dados da AgÃªncia e Conta =========
+$entra["agencia"]		=  "3127"; 		// Numero da AgÃªncia 4 Digitos s/DAC
 $entra["conta"]		=  "043969";	// Numero da Conta
 $entra["dac_conta"]		=  "5";		// Digito da Conta		
 $entra["cn_pj"]			=  "000";		// CNPJ PV da (3 Digitos)
 
 //=============Dados do Cedente ===============
 $entra["cpf_cnpj_cedente"] 	= "08.418.926/0001-03"; // CPF OU CNPJ Cedente
-$entra["endereco"] 		= "Rua Rui Barbosa, 1690"; 								// Enderço do cedente
+$entra["endereco"] 		= "Rua Rui Barbosa, 1690"; 								// EnderÃ§o do cedente
 $entra["cidade"] 		= "Presidente Prudente - SP";										 // Cidade do cedente
 $entra["cedente"] 		= "Comercial Shopping Livros LTDA"; 									// Nome do cedente
 
 //===Dados do seu Cliente (Opcional)===============
 $entra["sacado"]		= $sacado; // nome do Sacado (Seu cliente)
-$entra["endereco1"] 		= $endereco_sacado;// Endereço linha 1
+$entra["endereco1"] 		= $endereco_sacado;// EndereÃ§o linha 1
 $entra["endereco2"] 		= '';
-//$entra["endereco2"] 		= $dados[customers_street_address]." <br> ".$dados[customers_suburb]." - ".$dados[customers_city]." - ".$dados[customers_state]." - ".$dados[customers_postcode]; // Endereço linha 2
+//$entra["endereco2"] 		= $dados[customers_street_address]." <br> ".$dados[customers_suburb]." - ".$dados[customers_city]." - ".$dados[customers_state]." - ".$dados[customers_postcode]; // EndereÃ§o linha 2
 
-//==Os Campos Abaixo são Opcionais=================
-$entra["instrucoes"] = "Pagamento referente a compras efetuadas no site www.ShoppingLivros.com.br"; //Instruçoes para o Cliente
-$entra["instrucoes1"] = "- ATENÇÃO: Os produtos só serão enviados após o pagamento ter sido efetuado";
+//==Os Campos Abaixo sÃ£o Opcionais=================
+$entra["instrucoes"] = "Pagamento referente a compras efetuadas no site www.ShoppingLivros.com.br"; //InstruÃ§oes para o Cliente
+$entra["instrucoes1"] = "- ATENÃ‡ÃƒO: Os produtos sÃ³ serÃ£o enviados apÃ³s o pagamento ter sido efetuado";
 $entra["instrucoes2"] = $_POST["instrucoes1"];
 $entra["instrucoes3"] = $_POST["instrucoes2"];
 $entra["instrucoes4"] = $_POST["instrucoes3"];
@@ -105,7 +105,7 @@ $entra["especie"] = "DM";
 $entra["aceite"] = "N";
 
 //==================================================================
-//============================Não mude o valores abaixo=============
+//============================NÃ£o mude o valores abaixo=============
 
 include("funcoes/funcoes-caixa.php"); 
 $b = new boleto();
@@ -116,7 +116,7 @@ $b->banco_caixa($entra);
 <!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'>
 <HTML>
 <HEAD>
-<TITLE>Boleto Bancário Caixa Ec&ocirc;nomica Federal</TITLE><META http-equiv=Content-Type content=text/html; charset=windows-1252><style type=text/css>
+<TITLE>Boleto BancÃ¡rio Caixa Ec&ocirc;nomica Federal</TITLE><META http-equiv=Content-Type content=text/html; charset=windows-1252><style type=text/css>
 <!--.cp {  font: bold 10px Arial; color: black}
 <!--.ti {  font: 9px Arial, Helvetica, sans-serif}
 <!--.ld { font: bold 15px Arial; color: #000000}
@@ -128,7 +128,7 @@ $b->banco_caixa($entra);
 <script language="Javascript1.2">
   <!--
   function printpage() {
-	alert("ATENÇÃO: Não imprima este boleto em modo econômico.");
+	alert("ATENÃ‡ÃƒO: NÃ£o imprima este boleto em modo econÃ´mico.");
 	window.print();
   }
   //-->
@@ -136,19 +136,19 @@ $b->banco_caixa($entra);
 
 </HEAD>
 <BODY text=#000000 bgColor=#ffffff topMargin=0 rightMargin=0 onload="printpage()">
-<table width=666 cellspacing=0 cellpadding=0 border=0><tr><td valign=top class=cp><DIV ALIGN="CENTER">Instruções 
-de Impressão</DIV></TD></TR><TR><TD valign=top class=ti><DIV ALIGN="CENTER"><span STYLE="font-size: 12px; font-weight: bold">Imprimir 
-em impressora jato de tinta ou laser em qualidade normal. <b>(Não use modo 
-econômico)</b>.</span> <BR>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) - Corte 
+<table width=666 cellspacing=0 cellpadding=0 border=0><tr><td valign=top class=cp><DIV ALIGN="CENTER">InstruÃ§Ãµes 
+de ImpressÃ£o</DIV></TD></TR><TR><TD valign=top class=ti><DIV ALIGN="CENTER"><span STYLE="font-size: 12px; font-weight: bold">Imprimir 
+em impressora jato de tinta ou laser em qualidade normal. <b>(NÃ£o use modo 
+econÃ´mico)</b>.</span> <BR>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) - Corte 
 na linha indicada<BR>
 </div>
 <br />	
 <div align="center" style="font-size: 12px; text-alignment: center">
 	<br />
 	<b>Obrigado por comprar conosco.</b><br />
-	O número do seu pedido é: <strong><?php echo $_POST["ref_transacao"] ?></strong>.<br/>
+	O nÃºmero do seu pedido Ã©: <strong><?php echo $_POST["ref_transacao"] ?></strong>.<br/>
 	<a href="javascript:printpage();"><img border="0" src="<?php echo $caminho; ?>imagens/printer.gif" title="Imprimir"/></a>
-	&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo $caminhoPortal ?>">Após imprimir, clique aqui para voltar à loja.</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo $caminhoPortal ?>">ApÃ³s imprimir, clique aqui para voltar Ã  loja.</a>
 	
 </DIV></td></tr></table><br><table cellspacing=0 cellpadding=0 width=666 border=0><TBODY><TR><TD class=ct width=666><img height=1 src="<?php echo $caminho; ?>/imagens/6.gif" width=665 border=0></TD></TR><TR><TD class=ct width=666><div align=right><b class=cp>Recibo 
 do Sacado&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div></TD></tr></tbody></table><table width=666 cellspacing=5 cellpadding=0 border=0><tr><td width=41></TD></tr></table><table width=666 cellspacing=5 cellpadding=0 border=0 align=Default><tr> 
@@ -167,13 +167,13 @@ do Sacado&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div></TD></
 </tr><tr><td colspan=5><img height=2 src="<?php echo $caminho; ?>/imagens/2.gif" width=666 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0>
   <tbody><tr><td class=ct valign=top height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top height=13>Cedente</td>
   <td class=ct valign=top height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td>
-  <td class=ct valign=top height=13>Agência/Código 
+  <td class=ct valign=top height=13>AgÃªncia/CÃ³digo 
 do Cedente</td>
   <td class=ct valign=top height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td>
-  <td class=ct valign=top height=13>Espécie</td>
+  <td class=ct valign=top height=13>EspÃ©cie</td>
   <td class=ct valign=top height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td>
   <td height=13 colspan="3" valign=top class=ct>Nosso 
-número</td>
+nÃºmero</td>
   </tr><tr><td class=cp valign=top height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top height=12> 
 <?=$entra["cedente"]?> </td>
   <td class=cp valign=top height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td>
@@ -196,7 +196,7 @@ número</td>
 <td valign=top height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td>
 <td valign=top height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=120 border=0></td>
 </tr></tbody></table>
-<table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top colspan=3 height=13>Número 
+<table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top colspan=3 height=13>NÃºmero 
 do documento</td><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=132 height=13>CPF/CNPJ</td><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=134 height=13>Vencimento</td><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=180 height=13>Valor 
 documento</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top colspan=3 height=12> 
 <?=$entra["numero_documento"]?> </td><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top width=132 height=12> 
@@ -206,12 +206,12 @@ documento</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
 </tr><tr><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=113 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=113 border=0></td><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=72 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=72 border=0></td><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=132 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=132 border=0></td><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=134 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=134 border=0></td><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=180 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=180 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=113 height=13>(-) 
 Desconto / Abatimentos</td><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=112 height=13>(-) 
-Outras deduções</td><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=113 height=13>(+) 
+Outras deduÃ§Ãµes</td><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=113 height=13>(+) 
 Mora / Multa</td><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=113 height=13>(+) 
-Outros acréscimos</td><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=180 height=13>(=) 
+Outros acrÃ©scimos</td><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=180 height=13>(=) 
 Valor cobrado</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top align=right width=113 height=12></td><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top align=right width=112 height=12></td><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top align=right width=113 height=12></td><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top align=right width=113 height=12></td><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top align=right width=180 height=12></td></tr><tr><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=113 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=113 border=0></td><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=112 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=112 border=0></td><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=113 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=113 border=0></td><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=113 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=113 border=0></td><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=180 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=180 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=659 height=13>Sacado</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top width=659 height=12> 
-<?=$entra["sacado"]?> </td></tr><tr><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=659 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=659 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct  width=7 height=12></td><td class=ct  width=482 >Instruções</td><td class=ct  width=29 height=12></td><td class=ct  width=148 >Autenticação 
-mecânica</td></tr><tr><td  width=7 ></td><td  width=482 ></td><td  width=29 ></td><td  width=148 ></td></tr></tbody></table><table cellspacing=0 cellpadding=0 width=666 border=0><tbody><tr><td width=7></td><td  width=500 class=cp> 
+<?=$entra["sacado"]?> </td></tr><tr><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=659 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=659 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct  width=7 height=12></td><td class=ct  width=482 >InstruÃ§Ãµes</td><td class=ct  width=29 height=12></td><td class=ct  width=148 >AutenticaÃ§Ã£o 
+mecÃ¢nica</td></tr><tr><td  width=7 ></td><td  width=482 ></td><td  width=29 ></td><td  width=148 ></td></tr></tbody></table><table cellspacing=0 cellpadding=0 width=666 border=0><tbody><tr><td width=7></td><td  width=500 class=cp> 
 <?=$entra["instrucoes"]?> </td><td width=159></td></tr></tbody></table><table cellspacing=0 cellpadding=0 width=666 border=0><tr><td class=ct width=666></td></tr><tbody><tr><td class=ct width=666> 
 <div align=right>Corte na linha pontilhada&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr><tr><td class=ct width=666><img height=1 src="<?php echo $caminho; ?>/imagens/6.gif" width=665 border=0></td></tr></tbody></table><br><br><table cellspacing=0 cellpadding=0 width=664 border=0><tbody><tr><td class=cp width=146>
       <div align=left><IMG SRC="<?php echo $caminho; ?>/imagens/logo-caixa.jpg" WIDTH="145" HEIGHT="36"></div></td><td width=4 valign=bottom><img height=22 src="<?php echo $caminho; ?>/imagens/3.gif" width=2 border=0></td><td class=cpt  width=59 valign=bottom><div align=center><font class=bc>104-0</font></div></td><td width=4 valign=bottom><img height=22 src="<?php echo $caminho; ?>/imagens/3.gif" width=2 border=0></td><td class=ld align=right width=453 valign=bottom><span class=ld> 
@@ -223,7 +223,7 @@ de pagamento</td><td class=ct valign=top width=7 height=13><img height=13 src="<
       at&eacute; o vencimento</td><td class=cp valign=top width=7 height=12><img height=15 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top align=right width=180 height=12> 
 <?=$entra["data_vencimento"]?>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-</tr><tr><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=472 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=472 border=0></td><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=180 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=180 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=472 height=13>Cedente</td><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=180 height=13>Agência/Código 
+</tr><tr><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=472 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=472 border=0></td><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=180 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=180 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=472 height=13>Cedente</td><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=180 height=13>AgÃªncia/CÃ³digo 
 cedente</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top width=472 height=12> 
 <?=$entra["cedente"]?> </td><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top align=right width=180 height=12> 
 <?=$entra["agencia_codigo"]?>
@@ -231,11 +231,11 @@ cedente</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 sr
 </tr><tr><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=472 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=472 border=0></td><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=180 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=180 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13> 
 <img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=113 height=13>Data 
 do documento</td><td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=163 height=13>N<u>o</u> 
-documento</td><td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=62 height=13>Espécie 
+documento</td><td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=62 height=13>EspÃ©cie 
 doc.</td><td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=34 height=13>Aceite</td><td class=ct valign=top width=7 height=13> 
 <img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=72 height=13>Data 
 processamento</td><td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=180 height=13>Nosso 
-número</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top  width=113 height=12><div align=left> 
+nÃºmero</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top  width=113 height=12><div align=left> 
 <?=$entra["data_documento"]?> </div></td><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top width=163 height=12> 
 <?=$entra["numero_documento"]?> </td><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top  width=62 height=12><div align=left> 
 <?=$entra["especie"]?> </div></td><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top  width=34 height=12><div align=left> 
@@ -252,7 +252,7 @@ número</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src
 <img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=180 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr> 
 <td class=ct valign=top width=7 height=13> <img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top COLSPAN="3" height=13>Uso 
 do banco </td><td class=ct valign=top height=13 width=7> <img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=83 height=13>Carteira</td><td class=ct valign=top height=13 width=7> 
-<img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=53 height=13>Espécie</td><td class=ct valign=top height=13 width=7> 
+<img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=53 height=13>EspÃ©cie</td><td class=ct valign=top height=13 width=7> 
 <img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=123 height=13>Quantidade</td><td class=ct valign=top height=13 width=7> 
 <img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=72 height=13> 
 Valor </td><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=180 height=13>(=) 
@@ -274,7 +274,7 @@ Valor documento</td></tr><tr> <td class=cp valign=top width=7 height=12><img hei
 </table><table cellspacing=0 cellpadding=0 width=666 border=0><tbody><tr><td align=right width=10><table cellspacing=0 cellpadding=0 border=0 align=left><tbody> 
 <tr> <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td></tr><tr> 
 <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td></tr><tr> 
-<td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=1 border=0></td></tr></tbody></table></td><td valign=top width=468 rowspan=5><font class=ct>Instruções 
+<td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=1 border=0></td></tr></tbody></table></td><td valign=top width=468 rowspan=5><font class=ct>InstruÃ§Ãµes 
 (Texto de responsabilidade do cedente)</font><br><span class=cp> <? echo $entra["instrucoes1"]; ?><br> 
 <? echo $entra["instrucoes2"]; ?><br> <? echo $entra["instrucoes3"]; ?><br> <? echo $entra["instrucoes4"]; ?><br> 
 <? echo $entra["instrucoes5"]; ?><br> </span></td><td align=right width=188><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=180 height=13>(-) 
@@ -282,7 +282,7 @@ Desconto / Abatimentos</td></tr><tr> <td class=cp valign=top width=7 height=12><
 <td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=180 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=180 border=0></td></tr></tbody></table></td></tr><tr><td align=right width=10> 
 <table cellspacing=0 cellpadding=0 border=0 align=left><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td></tr><tr><td valign=top width=7 height=1> 
 <img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=1 border=0></td></tr></tbody></table></td><td align=right width=188><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=180 height=13>(-) 
-Outras deduções</td></tr><tr><td class=cp valign=top width=7 height=12> <img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top align=right width=180 height=12></td></tr><tr><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=180 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=180 border=0></td></tr></tbody></table></td></tr><tr><td align=right width=10> 
+Outras deduÃ§Ãµes</td></tr><tr><td class=cp valign=top width=7 height=12> <img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top align=right width=180 height=12></td></tr><tr><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=180 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=180 border=0></td></tr></tbody></table></td></tr><tr><td align=right width=10> 
 <table cellspacing=0 cellpadding=0 border=0 align=left><tbody><tr><td class=ct valign=top width=7 height=13> 
 <img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td></tr><tr><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=1 border=0></td></tr></tbody></table></td><td align=right width=188> 
 <table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=180 height=13>(+) 
@@ -291,14 +291,14 @@ Mora / Multa</td></tr><tr><td class=cp valign=top width=7 height=12><img height=
 <img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=180 border=0></td></tr></tbody></table></td></tr><tr><td align=right width=10><table cellspacing=0 cellpadding=0 border=0 align=left><tbody><tr> 
 <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td></tr><tr><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=1 border=0></td></tr></tbody></table></td><td align=right width=188> 
 <table cellspacing=0 cellpadding=0 border=0><tbody><tr> <td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=180 height=13>(+) 
-Outros acréscimos</td></tr><tr> <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top align=right width=180 height=12></td></tr><tr><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=180 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=180 border=0></td></tr></tbody></table></td></tr><tr><td align=right width=10><table cellspacing=0 cellpadding=0 border=0 align=left><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td></tr></tbody></table></td><td align=right width=188><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=180 height=13>(=) 
+Outros acrÃ©scimos</td></tr><tr> <td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top align=right width=180 height=12></td></tr><tr><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=180 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=180 border=0></td></tr></tbody></table></td></tr><tr><td align=right width=10><table cellspacing=0 cellpadding=0 border=0 align=left><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td></tr></tbody></table></td><td align=right width=188><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=180 height=13>(=) 
 Valor cobrado</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top align=right width=180 height=12></td></tr></tbody> 
 </table></td></tr></tbody></table><table cellspacing=0 cellpadding=0 width=666 border=0><tbody><tr><td valign=top width=666 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=666 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=659 height=13>Sacado</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top width=659 height=12> 
 <?=$entra["sacado"]?> </td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=cp valign=top width=7 height=12><img height=12 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top width=659 height=12> 
 <?=$entra["endereco1"]?> </td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=cp valign=top width=472 height=13> 
-<?=$entra["endereco2"]?> </td><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=180 height=13>Cód. 
-baixa</td></tr><tr><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=472 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=472 border=0></td><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=180 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=180 border=0></td></tr></tbody></table><TABLE cellSpacing=0 cellPadding=0 border=0 width=666><TBODY><TR><TD class=ct  width=7 height=12></TD><TD class=ct  width=409 >Sacador/Avalista</TD><TD class=ct  width=250 ><div align=right>Autenticação 
-mecânica - <b class=cp>Ficha de Compensação&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div></TD></TR><TR><TD class=ct  colspan=3 ></TD></tr></tbody></table><TABLE cellSpacing=0 cellPadding=0 width=666 border=0><TBODY><TR><TD vAlign=bottom align=left height=50> 
+<?=$entra["endereco2"]?> </td><td class=ct valign=top width=7 height=13><img height=13 src="<?php echo $caminho; ?>/imagens/1.gif" width=1 border=0></td><td class=ct valign=top width=180 height=13>CÃ³d. 
+baixa</td></tr><tr><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=472 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=472 border=0></td><td valign=top width=7 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=7 border=0></td><td valign=top width=180 height=1><img height=1 src="<?php echo $caminho; ?>/imagens/2.gif" width=180 border=0></td></tr></tbody></table><TABLE cellSpacing=0 cellPadding=0 border=0 width=666><TBODY><TR><TD class=ct  width=7 height=12></TD><TD class=ct  width=409 >Sacador/Avalista</TD><TD class=ct  width=250 ><div align=right>AutenticaÃ§Ã£o 
+mecÃ¢nica - <b class=cp>Ficha de CompensaÃ§Ã£o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div></TD></TR><TR><TD class=ct  colspan=3 ></TD></tr></tbody></table><TABLE cellSpacing=0 cellPadding=0 width=666 border=0><TBODY><TR><TD vAlign=bottom align=left height=50> 
 <? fbarcode($entra["codigo_barras"], $caminho); ?> </TD></tr></tbody></table><TABLE cellSpacing=0 cellPadding=0 width=666 border=0><TR><TD class=ct width=666></TD></TR><TBODY><TR><TD class=ct width=666><div align=right>Corte 
 na linha pontilhada&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></TD></TR><TR><TD class=ct width=666><img height=1 src="<?php echo $caminho; ?>/imagens/6.gif" width=665 border=0></TD></tr></tbody></table>
 </BODY></HTML>
