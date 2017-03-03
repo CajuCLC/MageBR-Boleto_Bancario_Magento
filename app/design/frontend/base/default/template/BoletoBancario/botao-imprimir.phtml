@@ -1,0 +1,15 @@
+<?php if($this->getOrder() && $this->getOrder()->getPayment()->getMethod() == "BoletoBancario_standard"): ?>
+    <?php
+        switch (strtolower($this->getTagType())) {
+            case 'link':
+                $link = '<a href="' . $this->getUrl("BoletoBancario/standard/view/order_id/" . $this->getOrder()->getId()) . '" class="link-cart" target="_blank">' . $this->__("Clique aqui para imprimir o Boleto") . '<img src="' . $this->getSkinUrl("images/boleto/boleto.gif") . '" /></a>';
+                break;
+
+            default:
+                $link = '<button type="button" class="button" onclick="window.open(\'' . $this->getUrl("BoletoBancario/standard/view/order_id/" . $this->getOrder()->getId()) . '\')"><span><span>' . $this->__("Clique aqui para imprimir o Boleto") . '</span></span><img src="' . ($this->getSkinUrl("images/boleto/boleto.gif")) . '" /></button>';
+        }
+    ?>
+    <br/>
+    <?php echo $link; ?>
+    <br/>
+<?php endif; ?>

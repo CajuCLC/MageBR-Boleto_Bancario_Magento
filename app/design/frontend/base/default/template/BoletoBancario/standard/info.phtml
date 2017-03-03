@@ -26,10 +26,10 @@
 ?>
 <!-- PARTE GERAL -->
 <p>
-	
+
 
 	<?php if ($this->getOrder()) { ?>
-			<script type="text/javascript"> 
+			<script type="text/javascript">
 				function abreJanelaBoleto(popup) {
 					var url = '<?php echo Mage::getUrl("BoletoBancario/standard/view/order_id/" . $this->getOrder()->getId()) ?>';
 					if (popup == true) {
@@ -41,12 +41,12 @@
 				}
 			</script>
 	<?php } ?>
-			
+
 			<?php if (strpos($_SERVER['REQUEST_URI'], 'success') !== false) { ?>
-				<p>VocÃª serÃ¡ redirecionado para a pÃ¡gina de impressÃ£o do boleto em 5 segundos. <br />
-					Se isso nÃ£o ocorrer, clique no botÃ£o "Exibir Boleto".
+				<p>Você será redirecionado para a página de impressão do boleto em 5 segundos. <br />
+					Se isso não ocorrer, clique no botão "Exibir Boleto".
 				</p>
-				<script type="text/javascript"> 
+				<script type="text/javascript">
 					window.setTimeout('abreJanelaBoleto(false)', 5000);
 				</script>
 			<?php } ?>
@@ -68,18 +68,18 @@ $statusordem = $this->getOrder()->getStatus();
 
 
 		if ($secancelado=="sim") { ?>
-			<button type="button" class="button" target="boleto" onclick="abreJanelaBoleto(true)"><img src="<?php echo($this->getSkinUrl('images/boleto/boleto.gif')) ?>" /><br /><span><span><?php echo $this->__('Emitir 2Âª Via do Boleto') ?></span></span></button><br />
-			
+			<button type="button" class="button" target="boleto" onclick="abreJanelaBoleto(true)"><img src="<?php echo($this->getSkinUrl('images/boleto/boleto.gif')) ?>" /><br /><span><span><?php echo $this->__('Emitir 2ª Via do Boleto') ?></span></span></button><br />
+
 	<?php }
 		else {
-	
+
 	if($statusordem=="canceled") : {
 		echo "Este pedido foi cancelado."; }
-		
+
 	 else : { ?>
-	 
-			<button type="button" class="button" target="boleto" onclick="abreJanelaBoleto(true)"><img src="<?php echo($this->getSkinUrl('images/boleto/boleto.gif')) ?>" /><br /><span><span><?php echo $this->__('Emitir 2Âª Via do Boleto') ?></span></span></button><br />
-	
+
+			<button type="button" class="button" target="boleto" onclick="abreJanelaBoleto(true)"><img src="<?php echo($this->getSkinUrl('images/boleto/boleto.gif')) ?>" /><br /><span><span><?php echo $this->__('Emitir 2ª Via do Boleto') ?></span></span></button><br />
+
 	<?php } ?>
 	<?php endif; ?>
 	<?php } ?>
@@ -91,7 +91,7 @@ else : { ?>
 <p>
 
 	<?php if ($this->getOrder()) { ?>
-			<script type="text/javascript"> 
+			<script type="text/javascript">
 				function abreJanelaBoleto(popup) {
 					var url = '<?php echo Mage::getUrl("BoletoBancario/standard/view/order_id/" . $this->getOrder()->getId()) ?>';
 					if (popup == true) {
@@ -102,16 +102,16 @@ else : { ?>
 					}
 				}
 			</script>
-			
+
 			<?php if (strpos($_SERVER['REQUEST_URI'], 'success') !== false) { ?>
-				<p>VocÃª serÃ¡ redirecionado para a pÃ¡gina de impressÃ£o do boleto em 5 segundos. <br />
-					Se isso nÃ£o ocorrer, clique no botÃ£o "Exibir Boleto".
+				<p>Você será redirecionado para a página de impressão do boleto em 5 segundos. <br />
+					Se isso não ocorrer, clique no botão "Exibir Boleto".
 				</p>
-				<script type="text/javascript"> 
+				<script type="text/javascript">
 					window.setTimeout('abreJanelaBoleto(false)', 5000);
 				</script>
 			<?php } ?>
-	
+
 			<?php if (Mage::registry('current_order')) { ?>
 				<button type="button" class="form-button" target="boleto" onclick="abreJanelaBoleto(true)"><span>Exibir Boleto</span></button>
 			<?php } ?>

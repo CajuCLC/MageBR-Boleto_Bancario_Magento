@@ -1,11 +1,11 @@
 <?php
 // +----------------------------------------------------------------------+
-// | BoletoPhp - Versão Beta                                              |
+// | BoletoPhp - VersÃ£o Beta                                              |
 // +----------------------------------------------------------------------+
-// | Este arquivo está disponível sob a Licença GPL disponível pela Web   |
+// | Este arquivo estÃ¡ disponÃ­vel sob a LicenÃ§a GPL disponÃ­vel pela Web   |
 // | em http://pt.wikipedia.org/wiki/GNU_General_Public_License           |
-// | Você deve ter recebido uma cópia da GNU Public License junto com     |
-// | esse pacote; se não, escreva para:                                   |
+// | VocÃª deve ter recebido uma cÃ³pia da GNU Public License junto com     |
+// | esse pacote; se nÃ£o, escreva para:                                   |
 // |                                                                      |
 // | Free Software Foundation, Inc.                                       |
 // | 59 Temple Place - Suite 330                                          |
@@ -13,16 +13,16 @@
 // +----------------------------------------------------------------------+
 
 // +----------------------------------------------------------------------+
-// | Originado do Projeto BBBoletoFree que tiveram colaborações de Daniel |
+// | Originado do Projeto BBBoletoFree que tiveram colaboraÃ§Ãµes de Daniel |
 // | William Schultz e Leandro Maniezo que por sua vez foi derivado do	  |
-// | PHPBoleto de João Prado Maia e Pablo Martins F. Costa                |
+// | PHPBoleto de JoÃ£o Prado Maia e Pablo Martins F. Costa                |
 // |                                                                      |
 // | Se vc quer colaborar, nos ajude a desenvolver p/ os demais bancos :-)|
 // | Acesse o site do Projeto BoletoPhp: www.boletophp.com.br             |
 // +----------------------------------------------------------------------+
 
 // +---------------------------------------------------------------------------------+
-// | Equipe Coordenação Projeto BoletoPhp: <boletophp@boletophp.com.br>              |
+// | Equipe CoordenaÃ§Ã£o Projeto BoletoPhp: <boletophp@boletophp.com.br>              |
 // | Desenvolvimento Boleto Banco do Brasil: Daniel William Schultz / Leandro Maniezo|
 // +---------------------------------------------------------------------------------+
 ?>
@@ -31,8 +31,8 @@
 <html>
 <head>
 <title><?php echo $dadosboleto["identificacao"]; ?></title>
-<META http-equiv=Content-Type content=text/html charset=ISO-8859-1>
-<meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - Licença GPL" />
+<META http-equiv=Content-Type content=text/html charset=UTF-8>
+<meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - LicenÃ§a GPL" />
 	
 <style type="text/css">
 <!--
@@ -491,7 +491,7 @@ div.barcode {
 <script language="Javascript1.2">
   <!--
   function printpage() {
-	alert("ATENÇÃO: Não imprima este boleto em modo econômico.");
+	alert("ATENÃ‡ÃƒO: NÃ£o imprima este boleto em modo econÃ´mico.");
 	window.print();
   }
   //-->
@@ -511,14 +511,14 @@ function close_window() {
 		<div style="float: left; padding-right: 10px"><a href="<?php echo $dadosboleto["store_url"] ?>"><img border="0" src="<?php echo $dadosboleto["logo_url"] ?>" /></a></div>
         <h1><?php echo $dadosboleto["identificacao"]; ?> <?php echo isset($dadosboleto["cpf_cnpj"]) ? $dadosboleto["cpf_cnpj"] : '' ?></h1>
 		<strong>Obrigado por comprar conosco.</strong>
-		O número do seu pedido é: <strong><?php echo $_POST["ref_transacao"] ?></strong>.<br/>
+		O nÃºmero do seu pedido Ã©: <strong><?php echo $_POST["ref_transacao"] ?></strong>.<br/>
 		<a href="javascript:printpage();"><img border="0" src="<?php echo $home_url . 'lib/boleto_php/imagens/printer.gif" title="Imprimir"/>' ;?></a>
-		&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:close_window();">Após imprimir, clique aqui para fechar boleto.</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:close_window();">ApÃ³s imprimir, clique aqui para fechar boleto.</a>
   </div>	<!-- id="instr_header" -->
 
   <div id="" style="padding-top: 8px; clear: both">
 <!--
-  Use no lugar do <div id=""> caso queira imprimir sem o logotipo e instruções
+  Use no lugar do <div id=""> caso queira imprimir sem o logotipo e instruÃ§Ãµes
   <div id="instructions">
  -->
 		<div id="instr_content">
@@ -665,7 +665,7 @@ function close_window() {
 			<td class="vencimento2">Vencimento</td>
 		</tr>
 		<tr class="campos">
-			<td class="local_pagto">Pagável em qualquer banco até o vencimento</td>
+			<td class="local_pagto">PagÃ¡vel em qualquer banco atÃ© o vencimento</td>
 			<td class="vencimento2"><?php echo $dadosboleto["data_vencimento"]?></td>
 		</tr>
 		</tbody>
@@ -710,7 +710,7 @@ function close_window() {
 		<tr class="titulos">
 			<td class="reservado">Uso do  banco</td>
 			<td class="carteira">Carteira</td>
-			<td class="especie2">Espécie</td>
+			<td class="especie2">EspÃ©cie</td>
 			<td class="qtd2">Quantidade</td>
 			<td class="xvalor">x Valor</td>
 			<td class="valor_doc2">(=) Valor documento</td>

@@ -1,11 +1,11 @@
 <?php
 // +----------------------------------------------------------------------+
-// | BoletoPhp - Versão Beta                                              |
+// | BoletoPhp - VersÃ£o Beta                                              |
 // +----------------------------------------------------------------------+
-// | Este arquivo está disponível sob a Licença GPL disponível pela Web   |
+// | Este arquivo estÃ¡ disponÃ­vel sob a LicenÃ§a GPL disponÃ­vel pela Web   |
 // | em http://pt.wikipedia.org/wiki/GNU_General_Public_License           |
-// | Você deve ter recebido uma cópia da GNU Public License junto com     |
-// | esse pacote; se não, escreva para:                                   |
+// | VocÃª deve ter recebido uma cÃ³pia da GNU Public License junto com     |
+// | esse pacote; se nÃ£o, escreva para:                                   |
 // |                                                                      |
 // | Free Software Foundation, Inc.                                       |
 // | 59 Temple Place - Suite 330                                          |
@@ -13,18 +13,18 @@
 // +----------------------------------------------------------------------+
 
 // +----------------------------------------------------------------------+
-// | Originado do Projeto BBBoletoFree que tiveram colaborações de Daniel |
+// | Originado do Projeto BBBoletoFree que tiveram colaboraÃ§Ãµes de Daniel |
 // | William Schultz e Leandro Maniezo que por sua vez foi derivado do	  |
-// | PHPBoleto de João Prado Maia e Pablo Martins F. Costa				  |
+// | PHPBoleto de JoÃ£o Prado Maia e Pablo Martins F. Costa				  |
 // | 																	  |
 // | Se vc quer colaborar, nos ajude a desenvolver p/ os demais bancos :-)|
 // | Acesse o site do Projeto BoletoPhp: www.boletophp.com.br             |
 // +----------------------------------------------------------------------+
 
 // +----------------------------------------------------------------------+
-// | Equipe Coordenação Projeto BoletoPhp: <boletophp@boletophp.com.br>   |
+// | Equipe CoordenaÃ§Ã£o Projeto BoletoPhp: <boletophp@boletophp.com.br>   |
 // | Desenvolvimento Boleto Unibanco: Elizeu Alcantara                    |
-// | Colaborações: Humberto Coelho Oliveira				                  |
+// | ColaboraÃ§Ãµes: Humberto Coelho Oliveira				                  |
 // +----------------------------------------------------------------------+
 
 
@@ -37,22 +37,22 @@ $zero = "00";
 
 //valor tem 10 digitos, sem virgula
 $valor = formata_numero($dadosboleto["valor_boleto"],10,0,"valor");
-//agencia é 4 digitos
+//agencia Ã© 4 digitos
 $agencia = formata_numero($dadosboleto["agencia"],4,0);
-//conta é 6 digitos + 1 do dv
+//conta Ã© 6 digitos + 1 do dv
 $conta = formata_numero($dadosboleto["conta"],6,0);
 //dv da conta
 $conta_dv = formata_numero($dadosboleto["conta_dv"],1,0);
-//carteira é 2 digitos
+//carteira Ã© 2 digitos
 $carteira = $dadosboleto["carteira"];
 
-//nosso número (sem dv) é 14 digitos
+//nosso nÃºmero (sem dv) Ã© 14 digitos
 $nnum = formata_numero($dadosboleto["nosso_numero"],14,0);
-//dv do nosso número
+//dv do nosso nÃºmero
 $dv_nosso_numero = modulo_11($nnum);
 $nossonumero_dv = "$nnum$dv_nosso_numero";
 
-//codigo_cliente é 6 digitos + 1 do dv
+//codigo_cliente Ã© 6 digitos + 1 do dv
 $codigo_cliente = formata_numero($dadosboleto["codigo_cliente"],7,0);
 
 // 43 numeros para o calculo do digito verificador
@@ -70,7 +70,7 @@ $dadosboleto["nosso_numero"] = $nossonumero;
 $dadosboleto["codigo_banco_com_dv"] = $codigo_banco_com_dv;
 
 
-// FUNÇÕES
+// FUNÃ‡Ã•ES
 // Algumas foram retiradas do Projeto PhpBoleto e modificadas para atender as particularidades de cada banco
 
 function digitoVerificador($numero) {
@@ -181,7 +181,7 @@ src=imagens/p.png width=<?php echo $largo?> height=<?php echo $altura?> border=0
 src=imagens/b.png width=<?php echo $fino?> height=<?php echo $altura?> border=0><img 
 src=imagens/p.png width=<?php echo 1?> height=<?php echo $altura?> border=0> 
   <?php
-} //Fim da função
+} //Fim da funÃ§Ã£o
 
 function esquerda($entra,$comp){
 	return substr($entra,0,$comp);
@@ -228,7 +228,7 @@ function modulo_10($num) {
             // pega cada numero isoladamente
             $numeros[$i] = substr($num,$i-1,1);
             // Efetua multiplicacao do numero pelo (falor 10)
-            // 2002-07-07 01:33:34 Macete para adequar ao Mod10 do Itaú
+            // 2002-07-07 01:33:34 Macete para adequar ao Mod10 do ItaÃº
             $temp = $numeros[$i] * $fator; 
             $temp0=0;
             foreach (preg_split('//',$temp,-1,PREG_SPLIT_NO_EMPTY) as $k=>$v){ $temp0+=$v; }
@@ -242,7 +242,7 @@ function modulo_10($num) {
             }
         }
 		
-        // várias linhas removidas, vide função original
+        // vÃ¡rias linhas removidas, vide funÃ§Ã£o original
         // Calculo do modulo 10
         $resto = $numtotal10 % 10;
         $digito = 10 - $resto;
@@ -259,22 +259,22 @@ function modulo_11($num, $base=9, $r=0)  {
      *   Autor:
      *           Pablo Costa <pablo@users.sourceforge.net>
      *
-     *   Função:
+     *   FunÃ§Ã£o:
      *    Calculo do Modulo 11 para geracao do digito verificador 
      *    de boletos bancarios conforme documentos obtidos 
      *    da Febraban - www.febraban.org.br 
      *
      *   Entrada:
-     *     $num: string numérica para a qual se deseja calcularo digito verificador;
+     *     $num: string numÃ©rica para a qual se deseja calcularo digito verificador;
      *     $base: valor maximo de multiplicacao [2-$base]
      *     $r: quando especificado um devolve somente o resto
      *
-     *   Saída:
+     *   SaÃ­da:
      *     Retorna o Digito verificador.
      *
-     *   Observações:
-     *     - Script desenvolvido sem nenhum reaproveitamento de código pré existente.
-     *     - Assume-se que a verificação do formato das variáveis de entrada é feita antes da execução deste script.
+     *   ObservaÃ§Ãµes:
+     *     - Script desenvolvido sem nenhum reaproveitamento de cÃ³digo prÃ© existente.
+     *     - Assume-se que a verificaÃ§Ã£o do formato das variÃ¡veis de entrada Ã© feita antes da execuÃ§Ã£o deste script.
      */                                        
 
     $soma = 0;
