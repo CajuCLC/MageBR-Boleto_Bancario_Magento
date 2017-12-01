@@ -1,11 +1,11 @@
 <?php
 // +----------------------------------------------------------------------+
-// | BoletoPhp - Versão Beta                                              |
+// | BoletoPhp - VersÃ£o Beta                                              |
 // +----------------------------------------------------------------------+
-// | Este arquivo está disponível sob a Licença GPL disponível pela Web   |
+// | Este arquivo estÃ¡ disponÃ­vel sob a LicenÃ§a GPL disponÃ­vel pela Web   |
 // | em http://pt.wikipedia.org/wiki/GNU_General_Public_License           |
-// | Você deve ter recebido uma cópia da GNU Public License junto com     |
-// | esse pacote; se não, escreva para:                                   |
+// | VocÃª deve ter recebido uma cÃ³pia da GNU Public License junto com     |
+// | esse pacote; se nÃ£o, escreva para:                                   |
 // |                                                                      |
 // | Free Software Foundation, Inc.                                       |
 // | 59 Temple Place - Suite 330                                          |
@@ -13,16 +13,16 @@
 // +----------------------------------------------------------------------+
 
 // +----------------------------------------------------------------------+
-// | Originado do Projeto BBBoletoFree que tiveram colaborações de Daniel |
+// | Originado do Projeto BBBoletoFree que tiveram colaboraÃ§Ãµes de Daniel |
 // | William Schultz e Leandro Maniezo que por sua vez foi derivado do	  |
-// | PHPBoleto de João Prado Maia e Pablo Martins F. Costa                |
+// | PHPBoleto de JoÃ£o Prado Maia e Pablo Martins F. Costa                |
 // |                                                                      |
 // | Se vc quer colaborar, nos ajude a desenvolver p/ os demais bancos :-)|
 // | Acesse o site do Projeto BoletoPhp: www.boletophp.com.br             |
 // +----------------------------------------------------------------------+
 
 // +----------------------------------------------------------------------+
-// | Equipe Coordenação Projeto BoletoPhp: <boletophp@boletophp.com.br>   |
+// | Equipe CoordenaÃ§Ã£o Projeto BoletoPhp: <boletophp@boletophp.com.br>   |
 // | Desenvolvimento Boleto BANCOOB/SICOOB: Marcelo de Souza              |
 // | Ajuste de algumas rotinas: Anderson Nuernberg                        |
 // +----------------------------------------------------------------------+
@@ -34,7 +34,7 @@
 <head>
 <title><?php echo $dadosboleto["identificacao"]; ?></title>
 <META http-equiv=Content-Type content=text/html charset=ISO-8859-1>
-<meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - Licença GPL" />
+<meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - LicenÃ§a GPL" />
 	
 <style type="text/css">
 <!--
@@ -503,7 +503,7 @@ div.barcode {
 
 	<div id="">
 <!--
-  Use no lugar do <div id=""> caso queira imprimir sem o logotipo e instruções
+  Use no lugar do <div id=""> caso queira imprimir sem o logotipo e instruÃ§Ãµes
   <div id="instructions">
  -->
 		
@@ -692,7 +692,7 @@ div.barcode {
 		<tr class="titulos">
 			<td class="reservado">Uso do  banco</td>
 			<td class="carteira">Carteira</td>
-			<td class="especie2">Espécie</td>
+			<td class="especie2">EspÃ©cie</td>
 			<td class="qtd2">Quantidade</td>
 			<td class="xvalor">x Valor</td>
 			<td class="valor_doc2">(=) Valor documento</td>

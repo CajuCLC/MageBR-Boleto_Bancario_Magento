@@ -15,8 +15,8 @@ class MageBR_BoletoBancario_Block_Standard_Redirect extends Mage_Core_Block_Abst
 		/*
 		$to = $a->getEmail();
 		$from = $this->getStandard()->getConfigData('MarchentEmailID');
-		$subject = "Boleto Banc�rio - 2? via";
-		$body = '<a href="' . Mage::getUrl("BoletoBancario/standard/view/order_id/$order_id") . '" target="boleto">Clique aqui para exibir a 2? via do boleto</a>';
+		$subject = "Boleto Bancário - 2ª via";
+		$body = '<a href="' . Mage::getUrl("BoletoBancario/standard/view/order_id/$order_id") . '" target="boleto">Clique aqui para exibir a 2ª via do boleto</a>';
 		
 		$this->getStandard()->sendHTMLemail($body, $from, $to, $subject);
 		*/

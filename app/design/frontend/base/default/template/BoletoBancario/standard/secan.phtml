@@ -42,8 +42,8 @@
 	<?php } ?>
 			
 			<?php if (strpos($_SERVER['REQUEST_URI'], 'success') !== false) { ?>
-				<p>Você será redirecionado para a página de impressão do boleto em 5 segundos. <br />
-					Se isso não ocorrer, clique no botão "Exibir Boleto".
+				<p>VocÃª serÃ¡ redirecionado para a pÃ¡gina de impressÃ£o do boleto em 5 segundos. <br />
+					Se isso nÃ£o ocorrer, clique no botÃ£o "Exibir Boleto".
 				</p>
 				<script type="text/javascript"> 
 					window.setTimeout('abreJanelaBoleto(false)', 5000);
@@ -56,7 +56,7 @@ $secancelado = $this->getStandard()->getConfigData('secancelado');
 $statusordem = $this->getOrder()->getStatus();
 
 		if ($secancelado=="sim") { ?>
-			<button type="button" class="form-button" target="boleto" onclick="abreJanelaBoleto(true)"><span>Emitir 2ª Via do Boleto</span></button>
+			<button type="button" class="form-button" target="boleto" onclick="abreJanelaBoleto(true)"><span>Emitir 2Âª Via do Boleto</span></button>
 	<?php }
 		else {
 	
@@ -64,7 +64,7 @@ $statusordem = $this->getOrder()->getStatus();
 		echo "Este pedido foi cancelado."; }
 		
 	 else : { ?>
-			<button type="button" class="form-button" target="boleto" onclick="abreJanelaBoleto(true)"><span>Emitir 2ª Via do Boleto</span></button>
+			<button type="button" class="form-button" target="boleto" onclick="abreJanelaBoleto(true)"><span>Emitir 2Âª Via do Boleto</span></button>
 	
 	<?php } ?>
 	<?php endif; ?>
